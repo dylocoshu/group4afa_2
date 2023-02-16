@@ -1,5 +1,6 @@
+
 <html>
-<?php require("NavBar.php");?>
+<?php require("verify_login.php");?>
 
 
 <?php

@@ -12,9 +12,10 @@ if(isset($_POST['submit'])){
     $v_type = $_SESSION['venue-type'];
     $loc = $_SESSION['location'];
     $email = $_SESSION['email'];
+    $link = $_POST['link'];
     $sql = "INSERT INTO Business_Owner 
-    (BusinessID, Username, Password, Business_Name,Venue_Type, Business_Description, Location, Email)
-    VALUES (:b_id,:uname,:pword,:bname,:v_type,:b_desc,:loc,:email)";
+    (BusinessID, Username, Password, Business_Name,Venue_Type, Business_Description, Location, Email, Link)
+    VALUES (:b_id,:uname,:pword,:bname,:v_type,:b_desc,:loc,:email,:link)";
     $stmt = $db -> prepare($sql);
     $stmt->bindParam(":b_id", $b_id);
     $stmt->bindParam(":uname", $uname);
@@ -24,11 +25,27 @@ if(isset($_POST['submit'])){
     $stmt->bindParam(":b_desc", $bdesc);
     $stmt->bindParam(":loc", $loc);
     $stmt->bindParam(":email", $email);
+    $stmt->bindParam(":link", $link);
     $result = $stmt->execute();
+    header("Location: homepage.php");
 }
 
 ?>
 <html>
+    <style> 
+		textarea {
+			width: 100%;
+			padding: 10px;
+			box-sizing: border-box;
+			margin-top: 5px;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			resize: vertical;
+		}
+        
+        
+        
+        </style>
 <?php require("NavBar.php");?>
         <head>
             <meta charset="utf-8">
@@ -45,9 +62,12 @@ if(isset($_POST['submit'])){
                 <div class = "cac-details">
                     <div style="padding-bottom: 10px"> <header align = "center">Create an Account</header> </div>
                     <label for="business-desc">Description of your Business</label>
-                    <input id="business-desc" name = "business-desc" style="height:100px;width:500px"></br>
+                    <textarea style = "padding-bottom: 10px" name="business-desc"></textarea>
+                    <label for="link">Link to your Website</label> </br>
+                    <input size = "100" name="link">
 </form>
 </div>
+    </br>
 <div class = "row-submit" > 
     <button class="w-20 btn btn-lg btn-primary" style="align: center" type="submit" name="submit" value="submitDetails">Next Page</button> 
 </div>

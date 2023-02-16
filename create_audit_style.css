@@ -1,0 +1,17 @@
+.cas-grid{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows:1fr 1fr 1fr;
+    grid-template-areas:
+    ". cas-box ."
+    ". cas-box ."
+    ". cas-box .";
+}
+.cas-box{
+    grid-area: cas-box;
+    background: green;
+    align-items: center;
+    justify-self: center;
+    border-radius: 10px;
+}
