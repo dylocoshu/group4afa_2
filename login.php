@@ -1,45 +1,32 @@
+<?php session_start() ?>
 <?php
 $db = new SQLite3('/xampp/Data/EverybodyWelcomeDB.db');
 $DBH = new PDO("sqlite:/xampp/Data/EverybodyWelcomeDB.db");
-
 if(isset($_POST['submit'])){
-
-     //Retrieve the user account information for the given username.
-     $username = $_POST['username'];
-     $password = $_POST['pass'];
-     $sql = "SELECT * FROM Business_Owner WHERE Username = :username";
-     $stmt = $DBH->prepare($sql);
-     
-     //Bind value.
-     $stmt->bindValue(':username', $username);
-     
-     //Execute.
-     $stmt->execute();
-     
-     //Fetch row.
-     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-     
-     
-     //If $row is FALSE.
-     if($user === false){
-        echo '<script>alert("invalid username or password")</script>';
-     }
-     elseif($user['Password'] != $password){
-      echo '<script>alert("invalid username or password")</script>';
-      
-     }
-     else{
-      echo '<script>alert("Logged in !")</script>';
-      header("Location: homepage.php");
-     }
+   //Retrieve the user account information for the given username.
+   $username = $_POST['username'];
+   $pass = $_POST['pass'];
+   $sql = "SELECT BusinessID, Venue_Type FROM Business_Owner WHERE Username = :username AND Password = :password";
+   $stmt = $DBH->prepare($sql);
+   
+   //Bind value.
+   $stmt->bindValue(':username', $username);
+   $stmt->bindValue(':password', $pass);
   
    
+   //Execute.
+   $stmt->execute();
+   $publisher = $stmt->fetch(PDO::FETCH_ASSOC);
    
-   
-   
-
+   if ($publisher) {
+      $_SESSION["username"] = $username;
+      $_SESSION["businessID"] = $publisher['BusinessID'];
+     header("Location: homepage.php");
+   } else {
+      echo '<script>alert("invalid username or password")</script>';
+   }
 }
-
+   
 ?>
 <html lang="en">
 <?php require("NavBar.php"); ?>
