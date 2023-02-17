@@ -1,7 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
 
+<html>
+  <?php require("verify_login.php");?>
+<head>
+<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="homepage_style.css">
 <title>Everybody Welcome</title>
 	
 	<style>
@@ -74,7 +78,7 @@ footer {
 </head>
 <body>
 
-<main>
+<main class>
 <h2 style="margin: 20px 0;">About Us</h2>
     <p>There are one billion people in the world with additional access needs, including over 14 million disabled
 people in the U.K.</p>

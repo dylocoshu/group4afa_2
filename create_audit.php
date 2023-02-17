@@ -20,6 +20,9 @@ if (isset($_POST['venue-type'])){
     $sql = "SELECT Question, Action_Point, QuestionID FROM Questions WHERE Venue_Type = :venue";
     $stmt = $db -> prepare($sql);
     $stmt->bindParam(":venue", $venue);
+    if(isset($_POST['venue-type'])){
+        $_SESSION['venue-type'] = $_POST['venue-type'];
+    }
     $result = $stmt->execute();
     $rows_array = [];
     $amount = 0;
@@ -33,9 +36,11 @@ if (isset($_POST['venue-type'])){
 }
 
 if(isset($_POST['delete'])){
-    echo $_POST['delete'];
     $sql = "DELETE from Questions WHERE QuestionID = :id";
     $stmt = $db -> prepare($sql);
+    if(isset($_POST['venue-type'])){
+        $_SESSION['venue-type'] = $_POST['venue-type'];
+    }
     $stmt->bindParam(":id", $_POST['delete']);
     $result = $stmt->execute();
 }
@@ -62,7 +67,7 @@ if(isset($_POST['delete'])){
             <table style="width: 100%; text-align: center;">
                 <tr>
                     <td> <label > Select a Venue </label></td>
-                    <td><input type = "search" name ="venue-type" placeholder="Search"> </td>
+                    <td><input value = "<?php echo isset($_SESSION['venue-type']) ? $_SESSION['venue-type'] : '' ?>" type = "search" name ="venue-type" placeholder="Search"> </td>
                     <td><button type = "submit" name="venue-button"> Venue Questions </button> </td>
                     
                 </tr>
