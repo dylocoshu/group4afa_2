@@ -75,6 +75,7 @@
 				background-color: #fff;
 				box-shadow: 0 0 10px rgba(0,0,0,0.2);
 				max-width: 600px;
+				border-radius: 10px;
 			}
 			h1 {
 				text-align: center;
@@ -146,7 +147,10 @@
 					<?php for($x = 0; $x < $amount; $x += 1) {?>
 						<tr>
 							<td><?php echo $rows_array[$x][1] ?></td>
-							<td><textarea name =<?php echo "answer_$x"?>></textarea></td>   
+							<td>
+								<label><input type="radio" name=<?php echo "answer_$x"?> value="Yes"> Yes</label>
+								<label><input type="radio" name=<?php echo "answer_$x"?> value="No"> No</label>   
+							</td>
 						</tr>
 					<?php } ?>
 				<?php } ?>

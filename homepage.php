@@ -46,29 +46,29 @@ while ($row=$result->fetchArray())
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="homepage_style.css">
-        <title>Access for All</title>
+        <title>Everybody Welcome</title>
     </head>
 <main>
     <div class = "homepage-grid">
         <div class = "homepage-search">
         <form method = "POST">
         <body>  
-            Location :  
+            <b>Location :  </b>
             <select name="locationDropdown" id="locationDropdown">
                 <option value="">Any</option>  
                 <option value="Sheffield" <?php if(!empty($location)){if(strpos($location, "Sheffield") !== FALSE){?> selected = "true" <?php }}?>>Sheffield</option>
                 <option value="Derby" <?php if(!empty($location)){if(strpos($location, "Derby") !== FALSE){?> selected = "true" <?php }}?>>Derby</option>  
                 <option value="London" <?php if(!empty($location)){if(strpos($location, "London") !== FALSE){?> selected = "true" <?php }}?>>London</option>  
             </select>
-            <input type="text" name="searchValue" value=<?php if(isset($_POST['submit'])){;}?>>
-            <button class="w-20 btn btn-lg btn-primary" style="align: center" type="submit" name="submit" value="submitLocation">Search</button>  
+            <input type="search" name="searchValue" placeholder="Search" value=<?php if(isset($_POST['submit'])){;}?>>
+            <button class="w-20 btn btn-primary" style="align: center; float:left;" type="submit" name="submit" value="submitLocation">Search</button>  
         </body>
         
     </div>
         <body>
             <?php if ($amount != 0){?>
                 <div class = "homepage-table">
-                    <table style="width: 100%; text-align: center; border: solid 2px black">
+                    <table style="width: 100%; text-align: center;">
                         <tr class="tableHead">
                             <th>Business Name</th>
                             <th>Venue</th>
