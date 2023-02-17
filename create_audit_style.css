@@ -2,8 +2,9 @@
     display: grid;
     justify-content: center;
     grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows:1fr;
+    grid-template-rows:.3fr 1fr ;
     grid-template-areas:
+    ". . ."
     ". qna-box-grid.";
 }
 .qna-box-grid{

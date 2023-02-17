@@ -22,10 +22,6 @@ if(isset($_POST['add-question'])){
 
 
 
-
-
-
-
 <html>
     <?php require("verify_login.php")?>
     <?php 
@@ -41,23 +37,24 @@ if(isset($_POST['add-question'])){
 <form method = "POST">
     <div class = "cas-grid"> 
         <div class = "qna-box-grid">
-            <div>
-                <label class = qna-box-label> Select a Venue </label>
-                <input class = qna-box-input name = "venue-type">
-                <button class = qna-box-button type = "button" name="venue-button"> Venue Questions </button>
-            </div>
-</br>
-            <div> 
-                <label class = qna-box-label> Question: </label>
-                <input class = qna-box-input name = "question">
-            </div>
-            </br>
-            <div> 
-                <label class = qna-box-label> Action Point: </label>
-                <input class = qna-box-input name = "action-point">
-            </div>
-            <button class = qna-box-button type="submit" name="add-question"> Add Question </button>
-            </br>
+            <table style="width: 100%; text-align: center;">
+                <tr>
+                    <td> <label > Select a Venue </label></td>
+                    <td><input  name = "venue-type"> </td>
+                    <td><button type = "button" name="venue-button"> Venue Questions </button> </td>
+                </tr>
+                <tr>
+                    <td> <label > Question: </label></td>
+                    <td> <input  name = "question"></td>
+                </tr>
+                <tr> 
+                    <td> <label> Action Point: </label> </td>
+                    <td> <input name = "action-point"></td>
+                </tr>
+                <tr>
+                    <td> <button class = qna-box-button type="submit" name="add-question"> Add Question </button></td>
+                </tr>
+            </table>
         </div>
     </div>
 </form>
