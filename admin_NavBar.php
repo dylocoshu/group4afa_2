@@ -15,8 +15,8 @@
 
 <body class = "bgcolor">
 	<nav>
-		<div class = "nav-text-effects"> <img src = 'images/Everybody_Welcome.png'  alt="Everybody Welcome" width = 200 height = 80 > <a href="homepage.php" > About Us </a>  <a href="homepage.php"> Venues </a></div>
-		<div class = "nav-text-effects"><a href="login.php" > Login </a></div>
+		<div class = "nav-text-effects"> <img src = 'images/Everybody_Welcome.png'  alt="Access For All" width = 200 height = 80 > <a href="homepage.php" > About Us </a>  
+    <a href="homepage.php"> Venues </a> <a href="create_audit.php"> Create an Audit </a></div>
+		<div class = "nav-text-effects"><a href="logout.php" > Logout </a></div>
 	</nav>
 </body>
-
