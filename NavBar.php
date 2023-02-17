@@ -27,7 +27,7 @@
 
 <body class = "bgcolor">
 	<nav>
-		<div class = "nav-text-effects"> <img src = 'images/Everybody_Welcome.png'  alt="Everybody Welcome" width = 200 height = 80 > <a href="homepage.php" > About Us </a>  <a href="homepage.php"> Venues </a></div>
+		<div class = "nav-text-effects"> <img src = 'images/Everybody_Welcome.png'  alt="Everybody Welcome" width = 200 height = 80 > <a href="About.php" > About Us </a>  <a href="homepage.php"> Venues </a></div>
 		<div class = "nav-text-effects"><a href="login.php" > Login </a></div>
 	</nav>
 </body>
