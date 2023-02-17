@@ -98,7 +98,9 @@ if(isset($_POST['delete'])){
                                       
                                     </tr>
                                     <?php }?>
-                        </table>
+                        </table>   
+
+                        
                                 </div>
                         </form>
                                
