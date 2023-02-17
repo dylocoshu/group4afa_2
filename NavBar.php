@@ -1,6 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <style>
+      nav{
+        box-shadow: 0 2px 2px -2px rgba(0,0,0,5);
+      }
+      a{
+        transition: all .2s ease-in-out; 
+      }
+      a:hover{   
+         background-color: rgb(241, 236, 236);
+         border-radius: 10px;
+      }
+    </style>
     <title>Everybody Welcome</title>
     
     <meta charset="utf-8">
