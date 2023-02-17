@@ -49,11 +49,11 @@ if(isset($_POST['submit'])){
       <br>
       
       
-      <input class="input1" type="username" name="username" required maxlength="50" placeholder=" username" class="box"><br>
+      <input class="input1" type="username" name="username" required maxlength="50" placeholder=" Username" class="box"><br>
       
-      <input class="input1" type="password" name="pass" required maxlength="20" placeholder=" password" class="box">
+      <input class="input1" type="password" name="pass" required maxlength="20" placeholder=" Password" class="box">
       <br>
-      <input  type="submit" value="login" name="submit" class="btn-primary1">
+      <input  type="submit" value="Login" name="submit" class="btn-primary1">
       <div class="message">
 
       
