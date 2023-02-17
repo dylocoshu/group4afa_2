@@ -35,22 +35,29 @@ if(isset($_POST['submit'])){
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="login_style.css">
    <title>Login</title>
 </head>
 <body>   
 
+<div class="form">
 <section class="form-container">
 
    <form action="" method="post">
       <h3>welcome back!</h3>
-      <input type="username" name="username" required maxlength="50" placeholder="enter your username" class="box">
-      <input type="password" name="pass" required maxlength="20" placeholder="enter your password" class="box">
-      <p>don't have an account? <a href="register.php">register new</a></p>
-      <input type="submit" value="login now" name="submit" class="btn">
+      <input type="username" name="username" required maxlength="50" placeholder="username" class="box"><br>
+      <input type="password" name="pass" required maxlength="20" placeholder="password" class="box">
+      
+      <input type="submit" value="Enter" name="submit" class="btn-primary">
+      <div class="message">
+      <p>Don't have an account? <a href="register.php">Register now</a></p>
+      </div>
    </form>
 
 </section>
+</div>
+
+
 
 <!-- login section ends -->
 
