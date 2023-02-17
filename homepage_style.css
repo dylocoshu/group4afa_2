@@ -24,10 +24,10 @@
 
 .homepage-grid{
     display: grid;
-    grid-template-columns: 1.5fr 3fr;
+    grid-template-columns: .5fr 1.5fr 3fr 1fr;
     grid-template-rows:1fr 4.5fr;
     grid-gap: 0.2rem;
     grid-template-areas: 
-    "homepage-search ."
-    "homepage-access-features homepage-table";
+    ". homepage-search . ."
+    ". homepage-access-features homepage-table .";
 }

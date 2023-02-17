@@ -1,9 +1,10 @@
+
 <html>
-<?php require("NavBar.php");?>
+<?php require("verify_login.php");?>
 
 
 <?php
-$db = new SQLite3('/xampp/Data/EverybodyWelcomeDB.db');
+$db = new SQLite3('/xampp/Data/test.db');
 if(isset($_POST['submit'])){
     $location = $_POST['locationDropdown'];
     $searchValue = $_POST['searchValue'];
@@ -21,7 +22,7 @@ if(!empty($location)){
     $sql_stmnt.= " AND Location = '$location'";
 }
 if(!empty($searchValue)){
-    $sql_stmnt.= " AND Business_Description LIKE '$searchValue'";
+    $sql_stmnt.= " AND LOWER(Business_Description) LIKE LOWER('%$searchValue%') ";
 }
 if(!empty($features_string)){
     $sql_stmnt.= " AND Access_Features LIKE '$features_string'";
@@ -71,7 +72,6 @@ while ($row=$result->fetchArray())
                         <tr class="tableHead">
                             <th>Business Name</th>
                             <th>Venue</th>
-                            <th>Description</th>
                             <th>Access Features</th>
                             <th>Location</th>
                         </tr>
@@ -79,7 +79,6 @@ while ($row=$result->fetchArray())
                                     <tr>
                                         <td><a href="https://www.cineworld.co.uk/cinemas/sheffield/031"><strong><?php echo $rows_array[$x][0]?></strong></a></td>
                                         <td><strong><?php echo $rows_array[$x][1];?></strong></td>
-                                        <td><strong><?php echo $rows_array[$x][2];?></strong></td>
                                         <td><strong><?php echo $rows_array[$x][3];?></strong></td>
                                         <td><strong><?php echo $rows_array[$x][4];?></strong></td>
                                     </tr>

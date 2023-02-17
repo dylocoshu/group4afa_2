@@ -3,7 +3,6 @@
     justify-content: center;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows:0.5fr 1fr 0.5fr;
-    grid-gap: 0.3rem;
     grid-template-areas:
     ". top-filler ."
     ". create-an-account-box ."
@@ -28,6 +27,7 @@
     border-radius: 20px;
     align-items: center;
     display: grid;
+    grid-gap: 0.2rem;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 1fr .3fr;
     grid-template-areas: 
