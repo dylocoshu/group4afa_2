@@ -50,6 +50,8 @@ if(isset($_POST['submit'])){
       
       <input type="submit" value="Enter" name="submit" class="btn-primary">
       <div class="message">
+
+      
       <p>Don't have an account? <a href="register.php">Register now</a></p>
       </div>
    </form>
