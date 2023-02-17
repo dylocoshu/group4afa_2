@@ -44,15 +44,20 @@ if(isset($_POST['submit'])){
 <section class="form-container">
 
    <form action="" method="post">
-      <h3>welcome back!</h3>
-      <input type="username" name="username" required maxlength="50" placeholder="username" class="box"><br>
-      <input type="password" name="pass" required maxlength="20" placeholder="password" class="box">
+      <br>
+      <h1>Welcome Back!</h1>
+      <br>
       
-      <input type="submit" value="Enter" name="submit" class="btn-primary">
+      
+      <input class="input1" type="username" name="username" required maxlength="50" placeholder=" username" class="box"><br>
+      
+      <input class="input1" type="password" name="pass" required maxlength="20" placeholder=" password" class="box">
+      <br>
+      <input  type="submit" value="login" name="submit" class="btn-primary1">
       <div class="message">
 
       
-      <p>Don't have an account? <a href="register.php">Register now</a></p>
+      <p>Don't have an account? <a href="register.php"><u>Register now</u></a></p>
       </div>
    </form>
 
