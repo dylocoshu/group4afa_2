@@ -16,12 +16,6 @@ if(isset($_POST['add-question'])){
 }
 ?>
 
-
-
-
-
-
-
 <html>
     <?php require("verify_login.php")?>
     <?php 
@@ -40,7 +34,7 @@ if(isset($_POST['add-question'])){
             <table style="width: 100%; text-align: center;">
                 <tr>
                     <td> <label > Select a Venue </label></td>
-                    <td><input  name = "venue-type"> </td>
+                    <td><input type = "search" name ="venue-type" placeholder="Search"> </td>
                     <td><button type = "button" name="venue-button"> Venue Questions </button> </td>
                 </tr>
                 <tr>
