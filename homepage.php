@@ -80,7 +80,7 @@ while ($row=$result->fetchArray())
                                     <tr>
                                         <td><a href="https://www.cineworld.co.uk/cinemas/sheffield/031"><strong><?php echo $rows_array[$x][0]?></strong></a></td>
                                         <td><strong><?php echo $rows_array[$x][1];?></strong></td>
-                                        <td><strong><a href="view_access_features.php?id =<?php echo $rows_array[$x][6] ?>">View Access Features</a></strong></td>
+                                        <td><strong><a href="view_access_features.php?id=<?php echo $rows_array[$x][6];?>">View Access Features</a></strong></td>
                                         <td><strong><?php echo $rows_array[$x][4];?></strong></td>
                                         <td><strong><?php echo $rows_array[$x][5];?></strong></td>
                                     </tr>
