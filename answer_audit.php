@@ -25,7 +25,8 @@
 			VALUES (:AID, :QID, :A)";
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(":AID",$answer_id );
-			$stmt->bindParam(":A",$_POST["answer_$x"] );
+			$answer = isset($_POST["answer_$x"]) ? $_POST["answer_$x"] : null;
+			$stmt->bindParam(":A", $answer);
 			$stmt->bindParam(":QID", $questionidArray[$x]);
 			$result = $stmt->execute();
 
