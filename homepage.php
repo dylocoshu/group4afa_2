@@ -46,7 +46,7 @@ while ($row=$result->fetchArray())
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="homepage_style.css">
-        <title>Everybodly Welcome</title>
+        <title>Everybodlly Welcome</title>
     </head>
 <main>
     <div class = "homepage-grid">
