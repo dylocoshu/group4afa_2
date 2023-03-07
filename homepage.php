@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
     }
     $features_string= implode(",",$features_array);
 }
-$sql_stmnt = "SELECT Business_Name, Venue_Type, Business_Description, Access_Features, Location FROM Business_Owner 
+$sql_stmnt = "SELECT Business_Name, Venue_Type, Business_Description, Access_Features, Location, Postcode, BusinessID FROM Business_Owner 
 WHERE Business_Name IS NOT NULL";
 if(!empty($location)){
     $sql_stmnt.= " AND Location = '$location'";
@@ -46,7 +46,7 @@ while ($row=$result->fetchArray())
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="homepage_style.css">
-        <title>Everybody Welcome</title>
+        <title>Everybodly Welcome</title>
     </head>
 <main>
     <div class = "homepage-grid">
@@ -74,13 +74,15 @@ while ($row=$result->fetchArray())
                             <th>Venue</th>
                             <th>Access Features</th>
                             <th>Location</th>
+                            <th>Postcode</th>
                         </tr>
                         <?php for($x = 0  ; $x < $amount; $x+=1){;?>
                                     <tr>
                                         <td><a href="https://www.cineworld.co.uk/cinemas/sheffield/031"><strong><?php echo $rows_array[$x][0]?></strong></a></td>
                                         <td><strong><?php echo $rows_array[$x][1];?></strong></td>
-                                        <td><strong><?php echo $rows_array[$x][3];?></strong></td>
+                                        <td><strong><a href="view_access_features.php?id=<?php echo $rows_array[$x][6];?>">View Access Features</a></strong></td>
                                         <td><strong><?php echo $rows_array[$x][4];?></strong></td>
+                                        <td><strong><?php echo $rows_array[$x][5];?></strong></td>
                                     </tr>
                                     <?php }?>
                         </table>

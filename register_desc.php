@@ -11,11 +11,12 @@ if(isset($_POST['submit'])){
     $bdesc = $_POST['business-desc'];
     $v_type = $_SESSION['venue-type'];
     $loc = $_SESSION['location'];
+    $pcode = $_SESSION['postcode'];
     $email = $_SESSION['email'];
     $link = $_POST['link'];
     $sql = "INSERT INTO Business_Owner 
-    (BusinessID, Username, Password, Business_Name,Venue_Type, Business_Description, Location, Email, Link)
-    VALUES (:b_id,:uname,:pword,:bname,:v_type,:b_desc,:loc,:email,:link)";
+    (BusinessID, Username, Password, Business_Name,Venue_Type, Business_Description, Location, Email, Link, Postcode)
+    VALUES (:b_id,:uname,:pword,:bname,:v_type,:b_desc,:loc,:email,:link, :pcode)";
     $stmt = $db -> prepare($sql);
     $stmt->bindParam(":b_id", $b_id);
     $stmt->bindParam(":uname", $uname);
@@ -26,6 +27,7 @@ if(isset($_POST['submit'])){
     $stmt->bindParam(":loc", $loc);
     $stmt->bindParam(":email", $email);
     $stmt->bindParam(":link", $link);
+    $stmt->bindParam(":pcode", $pcode);
     $result = $stmt->execute();
     header("Location: homepage.php");
 }
