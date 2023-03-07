@@ -1,0 +1,38 @@
+.cas-grid{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows:.3fr 1fr ;
+    grid-template-areas:
+    ". . ."
+    ". qna-box-grid.";
+}
+.qna-box-grid{
+    grid-area: qna-box-grid;
+    border-radius: 10px;
+    background: rgb(81, 83, 81, 0.3);
+    justify-self: center;
+    align-items: center;
+    display: inline-table;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows:1fr 1fr 1fr;
+    grid-template-areas:
+    "qna-box-label qna-box-input qna-box-button"
+    "qna-box-label qna-box-input ."
+    ". qna-box-button .";
+}
+.qna-box-label{
+    padding-right: 50px;
+    float: left;
+    align-items: center;
+}
+.qna-box-input{
+    margin: auto;
+    text-align: center;
+    align-self: auto;
+}
+.qna-box-button{
+    align-items: center;
+}

@@ -7,11 +7,12 @@
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
+  
 }
 
 nav{
   height: 80px;
-  background: #b4b4b9;
+  background: #4298f5;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,8 +31,8 @@ nav a{
 
 .btn-primary {
   color: #fff;
-  background-color: #00c4d2;
-  border-color: #002ad2;
+  background-color: #C6D200;
+  border-color: #C6D200;
 }
 
 /* .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -145,7 +146,7 @@ body {
 .inputFields{
   background-color: #d6d4d4;
   border-color: #d6d4d4;
-  border-radius: 25px;
+  border-radius: 5px;
   width: 50%;
   height: 50px;
 }
@@ -341,3 +342,48 @@ th{
   max-width: 40%;
   max-height: 100%;
  }
+
+ div.form
+{
+    margin-top: 5%;
+    display: block;
+    text-align: center;
+    border-radius: 10px;
+    background: rgb(81, 83, 81, 0.3);
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    margin-top: auto;
+    gap: 5px;
+    overflow: hidden;
+    
+    
+}
+
+div.message{
+  margin-top: 10px;
+}
+
+.input1{
+  margin-bottom: 10px;
+  border-radius: 25px;
+  height:30px;
+  width:300px;
+  font-size:14pt;
+}
+
+.btn-primary1 {
+  margin-top: 10px;
+  color: #fff;
+  background-color: #C6D200;
+  border-color: #C6D200;
+  border-radius: 15px;
+  font-size:14pt;
+}
+

@@ -1,0 +1,37 @@
+
+.page-grid{
+    display: inline-table;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: .2fr 1fr 1fr;
+    grid-template-areas:
+    "ps1-header ps1-header"
+    "page-section-1 page-section-1 "; 
+    justify-content: center;
+    justify-items: stretch;
+}
+.ps1-header{
+    text-align: left;
+    font-weight: 600;
+    font-size: larger;
+
+}
+.page-section-1{
+    display: grid;
+    grid-template-columns:.5fr 1fr 1.2fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+     "about-us-image about-us-text .";
+}
+.about-us-text{
+    grid-area: about-us-text;
+    font-size: 16px;
+    font-weight: 600;
+    float: left;
+    padding: 10px;
+    margin-top: -10px;
+}
+.about-us-image{
+    grid-area: about-us-image;
+
+
+}

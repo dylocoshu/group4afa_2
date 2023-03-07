@@ -7,6 +7,7 @@ if (isset($_POST["submit"])){
     $_SESSION['business-name'] = $_POST["business-name"];
     $_SESSION['venue-type'] = $_POST["venue-type"];
     $_SESSION['location'] = $_POST["location"];
+    $_SESSION['postcode'] = $_POST["postcode"];
     header("Location: register_desc.php");
 }
 ?>
@@ -42,6 +43,8 @@ if (isset($_POST["submit"])){
                     <input id = "venue-type" name = "venue-type"></br>
                     <label for="location">Location</label>
                     <input id = "location" name = "location"></br>
+                    <label for="postcode">Postcode</label>
+                    <input id = "postcode" name = "postcode"></br>
 </div>
 <div class = "row-submit" > 
     <button class="w-20 btn btn-lg btn-primary" style="align: center" type="submit" name="submit" value="submitLocation">Next Page</button> 

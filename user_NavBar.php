@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <style>
+  <style>
       nav{
         box-shadow: 0 2px 2px -2px rgba(0,0,0,5);
       }
@@ -27,8 +27,8 @@
 
 <body class = "bgcolor">
 	<nav>
-		<div class = "nav-text-effects"> <img src = 'images/Everybody_Welcome.png'  alt="Everybody Welcome" width = 200 height = 80 > <a href="About.php" > About Us </a>  <a href="homepage.php"> Venues </a></div>
-		<div class = "nav-text-effects"><a href="login.php" > Login </a></div>
+		<div class = "nav-text-effects"> <img src = 'images/Everybody_Welcome.png'  alt="Everybody Welcome" width = 200 height = 80 > <a href="About.php" > About Us </a>  
+    <a href="homepage.php"> Venues </a> <a href="answer_audit.php"> Enter an Audit </a>  <a href="view_audit.php"> View Audits </a></div>
+		<div class = "nav-text-effects"><a href="logout.php" > Logout </a></div>
 	</nav>
 </body>
-
