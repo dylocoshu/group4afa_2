@@ -1,5 +1,6 @@
 <?php
-$dsn = 'mysql:host=a4a-server-group4.mysql.database.azure.com;dbname=a4adatabase';
+#sd
+$dsn = 'mysql:host=a4a-server-group4.mysql.database.azure.com;dbname=a4a-database';
 $user = 'izqhdzlktw';
 $password = '315Y87ZNG4I53V17$';
 try { 
