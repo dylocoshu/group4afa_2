@@ -1,16 +1,16 @@
 <?php 
 session_start();
+include('includes/config.php');
 if(!empty($_SESSION["businessID"])){
-    $db = new SQLite3('/xampp/Data/test.db');
     $sql = "SELECT Type FROM Business_Owner WHERE BusinessID = :id";
     $stmt = $db->prepare($sql);
     
     //Bind value.
     $stmt->bindValue(':id', $_SESSION["businessID"]);
     $result = $stmt->execute();
-    $publisher = $result->fetchArray();
+    $publisher = $stmt->fetchObject();
 
-    if($publisher[0] === "Admin"){
+    if($publisher->Type === "Admin"){
         require("admin_NavBar.php");
     }
     else{
