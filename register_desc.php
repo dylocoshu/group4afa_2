@@ -3,7 +3,7 @@
 <?php 
 
 if(isset($_POST['submit'])){
-    $db = new SQLite3('/xampp/Data/test.db');
+    #$db = new SQLite3('/xampp/Data/test.db');
     $b_id = 100;
     $uname = $_SESSION["first-name"];
     $pword = $_SESSION['last-name'];

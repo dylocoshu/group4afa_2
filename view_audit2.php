@@ -10,7 +10,7 @@
   <tbody>
     <?php
     // Open database connection
-    $db = new SQLite3('/xampp/Data/test.db');
+    #$db = new SQLite3('/xampp/Data/test.db');
 
     // Get list of audits with completion status
     $result = $db->query('SELECT ar.AnswerID, ar.Date, ar.CustomerID, 

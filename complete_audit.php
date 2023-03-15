@@ -4,7 +4,7 @@ $answerID = $_GET['answerID'];
 $customerID = $_GET['customerID'];
 
 // Open database connection
-$db = new SQLite3('/xampp/Data/test.db');
+#$db = new SQLite3('/xampp/Data/test.db');
 
 // Get list of questions for the given answer ID
 $result = $db->query("SELECT q.QuestionID, q.Question, a.Answer

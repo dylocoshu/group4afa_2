@@ -3,7 +3,7 @@
 
 
 <?php
-$db = new SQLite3('/xampp/Data/EverybodyWelcomeDB.db');
+#$db = new SQLite3('/xampp/Data/EverybodyWelcomeDB.db');
 $stmt = $db->prepare('SELECT Business_Name, Venue_Type, Business_Description, Access_Features, Location FROM Business_Owner');
 $result = $stmt->execute();
 $rows_array = [];
