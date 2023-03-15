@@ -13,7 +13,7 @@
     $amount = 0;
 
 
-    while ($row=$result->fetchObject())
+    while ($row=$stmt->fetchObject())
     {
         $amount += 1;
         $rows_array[]=$row;
@@ -29,7 +29,7 @@
         $q_amount = 0;
 
 
-        while ($row=$result->fetchObject())
+        while ($row=$stmt->fetchObject())
         {
             $q_amount += 1;
             $rows_array_q[]=$row;
@@ -50,7 +50,7 @@
         $af_amount = 0;
 
 
-        while ($row=$result->fetchObject())
+        while ($row=$stmt->fetchObject())
         {
             $af_amount += 1;
             $rows_array_af[]=$row;

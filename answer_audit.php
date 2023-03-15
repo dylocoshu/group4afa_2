@@ -15,7 +15,7 @@
 		$stmt = $db->prepare($sql_stmnt);
 		$stmt->bindParam(":V", $_POST["venue-type"]);
 		$result = $stmt->execute();
-		while ($row = $result->fetchObject())
+		while ($row = $stmt->fetchObject())
 		{
 			$row_amount += 1;
 			$questionidArray[] = $row->QuestionID ;
@@ -139,7 +139,7 @@
 					$result = $stmt->execute();
 					$rows_array = [];
 
-					while ($row=$result->fetchObject())
+					while ($row=$stmt->fetchObject())
 					{
 						$amount += 1;
 						$rows_array[]=$row;

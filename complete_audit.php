@@ -15,7 +15,7 @@ $result = $db->query("SELECT q.QuestionID, q.Question, a.Answer
 echo '<form method="POST" action="submit_audit.php">';
 echo '<input type="hidden" name="answerID" value="' . $answerID . '">';
 echo '<input type="hidden" name="customerID" value="' . $customerID . '">';
-while ($row = $result->fetchObject()) {
+while ($row = $stmt->fetchObject()) {
     $questionID = $row->QuestionID;
     $question = $row->Question;
     $answer = $row->Answer;
