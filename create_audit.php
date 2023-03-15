@@ -2,7 +2,7 @@
 
 <?php 
 $amount = 0;
-$db = new SQLite3('/xampp/Data/test.db');
+#$db = new SQLite3('/xampp/Data/test.db');
 
 
 if(isset($_POST['add-question'])){
@@ -52,7 +52,7 @@ if(isset($_POST['delete'])){
 <html>
     <?php require("verify_login.php")?>
     <?php 
-    $db = new SQLite3('/xampp/Data/test.db')
+    #$db = new SQLite3('/xampp/Data/test.db')
     ?>
     <head>
         <meta charset="utf-8">

@@ -2,7 +2,7 @@
 
 <html>
 	<?php require("verify_login.php"); 
-	$db = new SQLite3('/xampp/Data/test.db');
+	#$db = new SQLite3('/xampp/Data/test.db');
 	?>
 
 	<?php 

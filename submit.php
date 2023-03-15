@@ -3,7 +3,7 @@
 <?php
 
 
-$db = new SQLite3('/xampp/Data/EverybodyWelcomeDB.db');
+#$db = new SQLite3('/xampp/Data/EverybodyWelcomeDB.db');
 
 
 $response_1 = $_POST['response_1'];

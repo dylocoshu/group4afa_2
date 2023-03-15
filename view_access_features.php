@@ -2,7 +2,7 @@
 <?php require("verify_login.php");?>
 <?php
 //gets recent answerid audit
-    $db = new SQLite3('/xampp/Data/test.db');
+    #$db = new SQLite3('/xampp/Data/test.db');
     $sql = "SELECT AnswerID FROM Audit_Response WHERE CustomerID = :id ORDER BY Date DESC";
     $stmt = $db->prepare($sql);
     

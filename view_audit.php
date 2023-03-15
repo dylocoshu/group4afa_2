@@ -12,7 +12,7 @@
         <div class = "field-box">
             <header>Please choose an Audit</header>
             <?php 
-            $db = new SQLite3('/xampp/Data/test.db');
+            #$db = new SQLite3('/xampp/Data/test.db');
             $sql = "SELECT AnswerID, Date from Audit_Response WHERE CustomerID = :CID";
             $stmt = $db -> prepare($sql);
             $stmt->bindParam(":CID", $_SESSION['businessID']);
