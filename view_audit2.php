@@ -21,7 +21,7 @@
         GROUP BY ar.AnswerID, ar.Date, ar.CustomerID');
 
     // Loop through each audit and display as a row in the table
-    while ($row = $result->fetchObject()) {
+    while ($row = $stmt->fetchObject()) {
         $answerID = $row->AnswerID;
         $date = $row-> Date;
         $customerID = $row->CustomerID;

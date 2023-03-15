@@ -19,7 +19,7 @@
             $result = $stmt->execute();
             $amount=0;
             $rows_array = [];
-            while($row=$result->fetchObject()){
+            while($row=$stmt->fetchObject()){
                 $amount += 1;
                 $rows_array[] = $row;
             }
@@ -40,7 +40,7 @@
                 $result = $stmt->execute();
                 $amount=0;
                 $rows_array = [];
-                while($row=$result->fetchObject()){
+                while($row=$stmt->fetchObject()){
                     $amount += 1;
                     $rows_array[] = $row;
                 }

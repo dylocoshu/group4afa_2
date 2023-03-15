@@ -28,7 +28,7 @@ if (isset($_POST['venue-type'])){
     $amount = 0;
 
 
-    while ($row=$result->fetchObject())
+    while ($row=$stmt->fetchObject())
     {
     $amount += 1;
     $rows_array[]=$row;
