@@ -15,10 +15,10 @@
 		$stmt = $db->prepare($sql_stmnt);
 		$stmt->bindParam(":V", $_POST["venue-type"]);
 		$result = $stmt->execute();
-		while ($row = $result->fetchArray())
+		while ($row = $result->fetchObject())
 		{
 			$row_amount += 1;
-			$questionidArray[] = $row[0] ;
+			$questionidArray[] = $row->QuestionID ;
 		}
 		for($x = 0; $x < $row_amount; $x++){
 			$sql = "INSERT INTO Answers (AnswerID, QuestionID, Answer)
@@ -139,7 +139,7 @@
 					$result = $stmt->execute();
 					$rows_array = [];
 
-					while ($row=$result->fetchArray())
+					while ($row=$result->fetchObject())
 					{
 						$amount += 1;
 						$rows_array[]=$row;
@@ -147,7 +147,7 @@
 				if($amount !== 0){ ?>
 					<?php for($x = 0; $x < $amount; $x += 1) {?>
 						<tr>
-							<td><?php echo $rows_array[$x][1] ?></td>
+							<td><?php echo $rows_array[$x]->Question ?></td>
 							<td>
 								<label><input type="radio" name=<?php echo "answer_$x"?> value="Yes"> Yes</label>
 								<label><input type="radio" name=<?php echo "answer_$x"?> value="No"> No</label>   

@@ -13,13 +13,13 @@
     $amount = 0;
 
 
-    while ($row=$result->fetchArray())
+    while ($row=$result->fetchObject())
     {
         $amount += 1;
         $rows_array[]=$row;
     }
     if($amount != 0){
-        $answerID = $rows_array[0][0];
+        $answerID = $rows_array[0]->AnswerID;
     // gets questions with answers 'yes' to display access features
         $sql = "SELECT QuestionID FROM Answers WHERE AnswerID = :id AND Answer = 'Yes' ";
         $stmt = $db->prepare($sql);
@@ -29,7 +29,7 @@
         $q_amount = 0;
 
 
-        while ($row=$result->fetchArray())
+        while ($row=$result->fetchObject())
         {
             $q_amount += 1;
             $rows_array_q[]=$row;
@@ -44,20 +44,20 @@
         
         $sql = "SELECT Access_Feature FROM Questions WHERE QuestionID = :id";
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':id', $rows_array_q[$x][0]);
+        $stmt->bindValue(':id', $rows_array_q[$x]->Access_Feature);
         $result = $stmt->execute();
         $rows_array = [];
         $af_amount = 0;
 
 
-        while ($row=$result->fetchArray())
+        while ($row=$result->fetchObject())
         {
             $af_amount += 1;
             $rows_array_af[]=$row;
         }
         ?>
 
-        <h1><?php echo $rows_array_af[$x][0] ?> </h1>
+        <h1><?php echo $rows_array_af[$x]->Access_Feature ?> </h1>
         <?php }?>
     <?php }?>
 <head>

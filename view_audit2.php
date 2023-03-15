@@ -21,11 +21,11 @@
         GROUP BY ar.AnswerID, ar.Date, ar.CustomerID');
 
     // Loop through each audit and display as a row in the table
-    while ($row = $result->fetchArray()) {
-        $answerID = $row['AnswerID'];
-        $date = $row['Date'];
-        $customerID = $row['CustomerID'];
-        $completed = $row['Completed'] === 'Yes';
+    while ($row = $result->fetchObject()) {
+        $answerID = $row->AnswerID;
+        $date = $row-> Date;
+        $customerID = $row->CustomerID;
+        $completed = $row->Completed === 'Yes';
 
         // Display audit as a row in the table
         echo "<tr>";

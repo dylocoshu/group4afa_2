@@ -15,10 +15,10 @@ $result = $db->query("SELECT q.QuestionID, q.Question, a.Answer
 echo '<form method="POST" action="submit_audit.php">';
 echo '<input type="hidden" name="answerID" value="' . $answerID . '">';
 echo '<input type="hidden" name="customerID" value="' . $customerID . '">';
-while ($row = $result->fetchArray()) {
-    $questionID = $row['QuestionID'];
-    $question = $row['Question'];
-    $answer = $row['Answer'];
+while ($row = $result->fetchObject()) {
+    $questionID = $row->QuestionID;
+    $question = $row->Question;
+    $answer = $row->Answer;
 
     // Display the question as a label and two checkboxes for "Yes" and "No"
     echo '<div>';
