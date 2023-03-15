@@ -1,7 +1,6 @@
 <?php session_start() ?>
 <?php
-$db = new SQLite3('/xampp/Data/test.db');
-$DBH = new PDO("sqlite:/xampp/Data/test.db");
+include('includes/config.php');
 if(isset($_POST['submit'])){
    //Retrieve the user account information for the given username.
    $username = $_POST['username'];
