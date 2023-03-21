@@ -42,7 +42,7 @@ $stmt = $db->prepare($sql_stmnt);
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="homepage_style.css">
-        <title>Everybodlly Welcome</title>
+        <title>Everybody Welcome</title>
     </head>
 <main>
     <div class = "homepage-grid">
@@ -58,6 +58,17 @@ $stmt = $db->prepare($sql_stmnt);
             </select>
             <input type="search" name="searchValue" placeholder="Search" value=<?php if(isset($_POST['submit'])){;}?>>
             <button class="w-20 btn btn-primary" style="align: center; float:left;" type="submit" name="submit" value="submitLocation">Search</button>  
+
+
+
+        <button onclick="changeFontSize()">Change font size</button>
+        <script>
+            function changeFontSize() {
+                <?php echo "dne"?>
+                var htmlElement = document.getElementsByTagName("html")[0];
+                htmlElement.style.fontSize = "2px"; // Change font size to 24px
+            }
+        </script>
         </body>
         
     </div>
