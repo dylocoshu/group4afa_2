@@ -4,9 +4,9 @@
 // $user = 'izqhdzlktw';
 // $password = '315Y87ZNG4I53V17$';
 
-$dsn = 'mysql:host=localhost;dbname=a4a-database';
-$user = 'root';
-$password = '';
+$dsn = 'mysql:host=afagroup4.mysql.database.azure.com;dbname=afadatabase';
+$user = 'admingroup4';
+$password = 'Passwordgroup41!';
 try { 
 $db = new PDO($dsn, $user, $password); 
 $db ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
