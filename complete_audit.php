@@ -1,3 +1,9 @@
+<head>
+<?php require("verify_login.php")?>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="view-audit_style.css">
+</head>
+
 <?php
 // Get answer ID and customer ID from GET parameters
 $answerID = $_GET['answerID'];
@@ -15,7 +21,7 @@ $result = $db->query("SELECT q.QuestionID, q.Question, a.Answer
 echo '<form method="POST" action="submit_audit.php">';
 echo '<input type="hidden" name="answerID" value="' . $answerID . '">';
 echo '<input type="hidden" name="customerID" value="' . $customerID . '">';
-while ($row = $stmt->fetchObject()) {
+while ($row = $result->fetchObject()) {
     $questionID = $row->QuestionID;
     $question = $row->Question;
     $answer = $row->Answer;
@@ -34,6 +40,5 @@ while ($row = $stmt->fetchObject()) {
 echo '<button type="submit">Continue Audit</button>';
 echo '</form>';
 
-// Close database connection
-$db->close();
+
 ?>
