@@ -15,17 +15,16 @@ if(isset($_POST['submit'])){
    
    //Execute.
    $stmt->execute();
-   $publisher = $stmt->fetch(PDO::FETCH_ASSOC);
+   $publisher = $stmt->fetchObject();
    
    if ($publisher) {
       $_SESSION["username"] = $username;
-      $_SESSION["businessID"] = $publisher['BusinessID'];
+      $_SESSION["businessID"] = $publisher->BusinessID;
      header("Location: homepage.php");
    } else {
       echo '<script>alert("invalid username or password")</script>';
    }
-}
-   
+}   
 ?>
 <html lang="en">
 <?php require("NavBar.php"); ?>
