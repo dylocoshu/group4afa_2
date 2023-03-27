@@ -1,3 +1,8 @@
+<head>
+<?php require("verify_login.php")?>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="view-audit_style.css">
+</head>
 <table>
   <thead>
     <tr>
@@ -22,11 +27,13 @@
 
     // Loop through each audit and display as a row in the table
     while ($row = $result->fetchArray()) {
+        
         $answerID = $row['AnswerID'];
         $date = $row['Date'];
         $customerID = $row['CustomerID'];
         $completed = $row['Completed'] === 'Yes';
-
+        if ($customerID == $_SESSION['businessID']){
+       
         // Display audit as a row in the table
         echo "<tr>";
         echo "<td>$answerID</td>";
@@ -40,6 +47,7 @@
         }
         echo "</td>";
         echo "</tr>";
+    }
     }
 
     // Close database connection
