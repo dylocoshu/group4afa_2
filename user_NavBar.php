@@ -28,7 +28,8 @@
 <body class = "bgcolor">
 	<nav>
 		<div class = "nav-text-effects"> <img src = 'images/Everybody_Welcome.png'  alt="Everybody Welcome" width = 200 height = 80 > <a href="About.php" > About Us </a>  
-    <a href="homepage.php"> Venues </a> <a href="answer_audit.php"> Enter an Audit </a>  <a href="view_audit.php"> View Audits </a></div>
+    <a href="homepage.php"> Venues </a> <a href="subscription.php"> Subscription </a> <a href="answer_audit.php"> Enter an Audit </a>  <a href="view_audit.php"> View Audits </a></div>
 		<div class = "nav-text-effects"><a href="logout.php" > Logout </a></div>
+
 	</nav>
 </body>
