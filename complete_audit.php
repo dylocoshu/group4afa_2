@@ -4,7 +4,7 @@ $answerID = $_GET['answerID'];
 $customerID = $_GET['customerID'];
 
 // Open database connection
-$db = new SQLite3('/xampp/Data/test.db');
+#$db = new SQLite3('/xampp/Data/test.db');
 
 // Get list of questions for the given answer ID
 $result = $db->query("SELECT q.QuestionID, q.Question, a.Answer
@@ -15,10 +15,10 @@ $result = $db->query("SELECT q.QuestionID, q.Question, a.Answer
 echo '<form method="POST" action="submit_audit.php">';
 echo '<input type="hidden" name="answerID" value="' . $answerID . '">';
 echo '<input type="hidden" name="customerID" value="' . $customerID . '">';
-while ($row = $result->fetchArray()) {
-    $questionID = $row['QuestionID'];
-    $question = $row['Question'];
-    $answer = $row['Answer'];
+while ($row = $stmt->fetchObject()) {
+    $questionID = $row->QuestionID;
+    $question = $row->Question;
+    $answer = $row->Answer;
 
     // Display the question as a label and two checkboxes for "Yes" and "No"
     echo '<div>';

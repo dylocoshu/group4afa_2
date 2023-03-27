@@ -12,20 +12,20 @@
         <div class = "field-box">
             <header>Please choose an Audit</header>
             <?php 
-            $db = new SQLite3('/xampp/Data/test.db');
+            #$db = new SQLite3('/xampp/Data/test.db');
             $sql = "SELECT AnswerID, Date from Audit_Response WHERE CustomerID = :CID";
             $stmt = $db -> prepare($sql);
             $stmt->bindParam(":CID", $_SESSION['businessID']);
             $result = $stmt->execute();
             $amount=0;
             $rows_array = [];
-            while($row=$result->fetchArray()){
+            while($row=$stmt->fetchObject()){
                 $amount += 1;
                 $rows_array[] = $row;
             }
             ?>
             <?php for($x = 0;$x<$amount;$x++){?>
-                <button type="submit" name="view-audit" value=<?php echo $rows_array[$x][0] ?>><?php echo ($x+1)." ".$rows_array[$x][1] ?></button>
+                <button type="submit" name="view-audit" value=<?php echo $rows_array[$x]->AnswerID ?>><?php echo ($x+1)." ".$rows_array[$x]->Date ?></button>
             <?php }?>
         </div>
         <div class = "qna-box">
@@ -40,7 +40,7 @@
                 $result = $stmt->execute();
                 $amount=0;
                 $rows_array = [];
-                while($row=$result->fetchArray()){
+                while($row=$stmt->fetchObject()){
                     $amount += 1;
                     $rows_array[] = $row;
                 }
@@ -55,9 +55,9 @@
                 </tr>
                 <?php for($x=0;$x < $amount;$x+=1){?>
                 <tr> 
-                    <td> <?php echo $rows_array[$x][0]?></td>
-                    <td class = "answer"> <?php echo $rows_array[$x][1]?></td>
-                    <td> <?php if(strtolower($rows_array[$x][1]) == "no"){echo $rows_array[$x][2];}else{echo "N/A";}?></td>
+                    <td> <?php echo $rows_array[$x]->Question?></td>
+                    <td class = "answer"> <?php echo $rows_array[$x]->Answer?></td>
+                    <td> <?php if(strtolower($rows_array[$x][1]) == "no"){echo $rows_array[$x]->Action_Point;}else{echo "N/A";}?></td>
                 </tr>
                 <?php } ?>
             <?php } ?>

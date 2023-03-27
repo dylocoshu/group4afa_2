@@ -15,7 +15,7 @@
   <tbody>
     <?php
     // Open database connection
-    $db = new SQLite3('/xampp/Data/test.db');
+    #$db = new SQLite3('/xampp/Data/test.db');
 
     // Get list of audits with completion status
     $result = $db->query('SELECT ar.AnswerID, ar.Date, ar.CustomerID, 
@@ -26,14 +26,12 @@
         GROUP BY ar.AnswerID, ar.Date, ar.CustomerID');
 
     // Loop through each audit and display as a row in the table
-    while ($row = $result->fetchArray()) {
-        
-        $answerID = $row['AnswerID'];
-        $date = $row['Date'];
-        $customerID = $row['CustomerID'];
-        $completed = $row['Completed'] === 'Yes';
-        if ($customerID == $_SESSION['businessID']){
-       
+    while ($row = $stmt->fetchObject()) {
+        $answerID = $row->AnswerID;
+        $date = $row-> Date;
+        $customerID = $row->CustomerID;
+        $completed = $row->Completed === 'Yes';
+
         // Display audit as a row in the table
         echo "<tr>";
         echo "<td>$answerID</td>";
@@ -47,7 +45,6 @@
         }
         echo "</td>";
         echo "</tr>";
-    }
     }
 
     // Close database connection

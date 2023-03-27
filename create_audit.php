@@ -2,7 +2,7 @@
 
 <?php 
 $amount = 0;
-$db = new SQLite3('/xampp/Data/test.db');
+#$db = new SQLite3('/xampp/Data/test.db');
 
 
 if(isset($_POST['add-question'])){
@@ -28,7 +28,7 @@ if (isset($_POST['venue-type'])){
     $amount = 0;
 
 
-    while ($row=$result->fetchArray())
+    while ($row=$stmt->fetchObject())
     {
     $amount += 1;
     $rows_array[]=$row;
@@ -52,7 +52,7 @@ if(isset($_POST['delete'])){
 <html>
     <?php require("verify_login.php")?>
     <?php 
-    $db = new SQLite3('/xampp/Data/test.db')
+    #$db = new SQLite3('/xampp/Data/test.db')
     ?>
     <head>
         <meta charset="utf-8">
@@ -97,9 +97,9 @@ if(isset($_POST['delete'])){
                         </tr>
                         <?php for($x = 0  ; $x < $amount; $x+=1){;?>
                                     <tr>
-                                        <td><strong><?php echo $rows_array[$x][0]?></strong></td>
-                                        <td><strong><?php echo $rows_array[$x][1];?></strong></td>
-                                        <?php if($rows_array[$x][1]){ ?><td> <button type="submit" name="delete" value= <?php echo $rows_array[$x][2] ?>> Delete </button></td><?php } ?>
+                                        <td><strong><?php echo $rows_array[$x]->Question?></strong></td>
+                                        <td><strong><?php echo $rows_array[$x]->Action_Point;?></strong></td>
+                                        <?php if($rows_array[$x][1]){ ?><td> <button type="submit" name="delete" value= <?php echo $rows_array[$x]->QuestionID ?>> Delete </button></td><?php } ?>
                                       
                                     </tr>
                                     <?php }?>

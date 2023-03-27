@@ -4,7 +4,7 @@
 
 
 <?php
-$db = new SQLite3('/xampp/Data/test.db');
+#$db = new SQLite3('/xampp/Data/test.db');
 if(isset($_POST['submit'])){
     $location = $_POST['locationDropdown'];
     $searchValue = $_POST['searchValue'];
@@ -29,16 +29,12 @@ if(!empty($features_string)){
 }
 $stmt = $db->prepare($sql_stmnt);
 
-$result = $stmt->execute();
-$rows_array = [];
-$amount = 0;
+ $stmt->execute();
 
 
-while ($row=$result->fetchArray())
-{
-    $amount += 1;
-    $rows_array[]=$row;
-}
+
+
+
 ?>
 
     <head>
@@ -46,7 +42,7 @@ while ($row=$result->fetchArray())
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="homepage_style.css">
-        <title>Everybodly Welcome</title>
+        <title>Everybody Welcome</title>
     </head>
 <main>
     <div class = "homepage-grid">
@@ -62,11 +58,22 @@ while ($row=$result->fetchArray())
             </select>
             <input type="search" name="searchValue" placeholder="Search" value=<?php if(isset($_POST['submit'])){;}?>>
             <button class="w-20 btn btn-primary" style="align: center; float:left;" type="submit" name="submit" value="submitLocation">Search</button>  
+
+
+
+        <button onclick="changeFontSize()">Change font size</button>
+        <script>
+            function changeFontSize() {
+                <?php echo "dne"?>
+                var htmlElement = document.getElementsByTagName("html")[0];
+                htmlElement.style.fontSize = "2px"; // Change font size to 24px
+            }
+        </script>
         </body>
         
     </div>
         <body>
-            <?php if ($amount != 0){?>
+            <?php //if ($amount != 0){?>
                 <div class = "homepage-table">
                     <table style="width: 100%; text-align: center;">
                         <tr class="tableHead">
@@ -76,18 +83,18 @@ while ($row=$result->fetchArray())
                             <th>Location</th>
                             <th>Postcode</th>
                         </tr>
-                        <?php for($x = 0  ; $x < $amount; $x+=1){;?>
+                        <?php while ($row=$stmt->fetchObject()){?>
                                     <tr>
-                                        <td><a href="https://www.cineworld.co.uk/cinemas/sheffield/031"><strong><?php echo $rows_array[$x][0]?></strong></a></td>
-                                        <td><strong><?php echo $rows_array[$x][1];?></strong></td>
-                                        <td><strong><a href="view_access_features.php?id=<?php echo $rows_array[$x][6];?>">View Access Features</a></strong></td>
-                                        <td><strong><?php echo $rows_array[$x][4];?></strong></td>
-                                        <td><strong><?php echo $rows_array[$x][5];?></strong></td>
+                                        <td><a href="https://www.cineworld.co.uk/cinemas/sheffield/031"><strong><?php echo $row->Business_Name?></strong></a></td>
+                                        <td><strong><?php echo $row->Venue_Type;?></strong></td>
+                                        <td><strong><a href="view_access_features.php?id=<?php echo $row->BusinessID;?>">View Access Features</a></strong></td>
+                                        <td><strong><?php echo $row->Location;?></strong></td>
+                                        <td><strong><?php echo $row->Postcode;?></strong></td>
                                     </tr>
                                     <?php }?>
                         </table>
                                 </div>
-                                <?php }?>
+                                <?php //}?>
         </body>
         <div class = "homepage-access-features">
             <header><b> Filter by Access Features </b></header>
