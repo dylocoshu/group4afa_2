@@ -9,16 +9,19 @@ if(!empty($_SESSION["businessID"])){
     $stmt->bindValue(':id', $_SESSION["businessID"]);
     $result = $stmt->execute();
     $publisher = $stmt->fetchObject();
+    echo $publisher->Type;
 
     if($publisher->Type === "Admin"){
         require("admin_NavBar.php");
+        echo $publisher->Type;
     }
     else{
         require("user_NavBar.php");
+        echo $publisher->Type;
     }
 }
 else{
     require("NavBar.php");
+    echo $publisher->Type;
 }
-echo $publisher->Type;
 ?>
