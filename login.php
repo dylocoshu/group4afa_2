@@ -2,6 +2,7 @@
 <?php
 include('includes/config.php');
 session_start();
+//i
 if(isset($_POST['submit'])){
    //Retrieve the user account information for the given username.
    $username = $_POST['username'];
@@ -9,12 +10,12 @@ if(isset($_POST['submit'])){
    $sql = "SELECT BusinessID, Venue_Type FROM Business_Owner WHERE Username = :username AND Password = :password";
    $stmt = $db->prepare($sql);
    
-   //Bind value.
+   //Bind value
    $stmt->bindValue(':username', $username);
    $stmt->bindValue(':password', $pass);
   
    
-   //Execute.
+   //Execute
    $stmt->execute();
    $publisher = $stmt->fetchObject();
    
