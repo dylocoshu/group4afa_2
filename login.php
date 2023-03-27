@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
    $stmt->bindValue(':password', $pass);
   
    
-   //Execute.
+   //Execute
    $stmt->execute();
    $publisher = $stmt->fetchObject();
    
