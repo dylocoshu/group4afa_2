@@ -1,7 +1,6 @@
-
 <?php
-include('includes/config.php');
 session_start();
+include('includes/config.php');
 //i
 if(isset($_POST['submit'])){
    //Retrieve the user account information for the given username.
