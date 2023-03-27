@@ -1,5 +1,5 @@
 
-<html>
+<!DOCTYPE html>
 <?php require("verify_login.php");?>
 
 
@@ -61,16 +61,19 @@ $stmt = $db->prepare($sql_stmnt);
 
 
 
-        <button onclick="changeFontSize()">Change font size</button>
+        <button id="changeFontSizeBtn">Change font size</button>
         <script>
-            function changeFontSize() {
-                <?php echo "dne"?>
-                var htmlElement = document.getElementsByTagName("html")[0];
-                htmlElement.style.fontSize = "2px"; // Change font size to 24px
+            var changeFontSizeBtn = document.getElementById("changeFontSizeBtn");
+
+            changeFontSizeBtn.addEventListener("click", function() {
+            var elements = document.querySelectorAll("body .bgcolor");
+            for (var i = 0; i < elements.length; i++) {
+                <?php echo "1"?>
+                elements[i].style.fontSize = "5px"; // Change to the desired font size
             }
+            });
         </script>
         </body>
-        
     </div>
         <body>
             <?php //if ($amount != 0){?>
