@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
    
    if ($publisher) {
       $_SESSION["username"] = $username;
-      $_SESSION["businessID"] = $publisher['BusinessID'];
+      $_SESSION["businessID"] = $publisher->BusinessID;
      header("Location: homepage.php");
    } else {
       echo '<script>alert("invalid username or password")</script>';
