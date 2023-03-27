@@ -18,9 +18,10 @@ if(isset($_POST['submit'])){
    $publisher = $stmt->fetchObject();
    
    if ($publisher) {
-      $_SESSION["username"] = $username;
-      $_SESSION["businessID"] = $publisher->BusinessID;
-     header("Location: homepage.php");
+      $_SESSION['username'] = $username;
+      $_SESSION['businessID'] = $publisher->BusinessID;
+      echo '<script>alert("Logged in")</script>';
+      header("Location: homepage.php");
    } else {
       echo '<script>alert("invalid username or password")</script>';
    }

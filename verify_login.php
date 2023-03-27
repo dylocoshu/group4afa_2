@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include('includes/config.php');
-if(!empty($_SESSION["businessID"])){
+if(!empty($_SESSION['businessID'])){
     $sql = "SELECT Type FROM Business_Owner WHERE BusinessID = :id";
     $stmt = $db->prepare($sql);
     
@@ -9,7 +9,6 @@ if(!empty($_SESSION["businessID"])){
     $stmt->bindValue(':id', $_SESSION["businessID"]);
     $result = $stmt->execute();
     $publisher = $stmt->fetchObject();
-    echo $publisher->Type;
 
     if($publisher->Type === "Admin"){
         require("admin_NavBar.php");
@@ -17,11 +16,13 @@ if(!empty($_SESSION["businessID"])){
     }
     else{
         require("user_NavBar.php");
+        echo "ID: ".$_SESSION['businessID'];
         echo $publisher->Type;
     }
 }
 else{
     require("NavBar.php");
+    echo "ID: ".$SESSION['businessID'];
     echo $publisher->Type;
 }
 ?>
