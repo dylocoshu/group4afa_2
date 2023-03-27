@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
    $sql = "SELECT BusinessID, Venue_Type FROM Business_Owner WHERE Username = :username AND Password = :password";
    $stmt = $db->prepare($sql);
    
-   //Bind value.
+   //Bind value
    $stmt->bindValue(':username', $username);
    $stmt->bindValue(':password', $pass);
   
