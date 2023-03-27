@@ -8,9 +8,9 @@ if(!empty($_SESSION["businessID"])){
     //Bind value.
     $stmt->bindValue(':id', $_SESSION["businessID"]);
     $result = $stmt->execute();
-    $publisher = $stmt->fetchObject();
+    $publisher = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if($publisher->Type === "Admin"){
+    if($publisher['Type'] === "Admin"){
         require("admin_NavBar.php");
     }
     else{
@@ -20,5 +20,5 @@ if(!empty($_SESSION["businessID"])){
 else{
     require("NavBar.php");
 }
-echo $publisher->Type;
+echo $publisher['Type'];
 ?>
