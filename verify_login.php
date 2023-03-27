@@ -6,7 +6,7 @@ if(!empty($_SESSION['businessID'])){
     $stmt = $db->prepare($sql);
     
     //Bind value.
-    $stmt->bindValue(':id', $_SESSION["businessID"]);
+    $stmt->bindValue(':id', $_SESSION['businessID']);
     $result = $stmt->execute();
     $publisher = $stmt->fetchObject();
 
@@ -22,7 +22,7 @@ if(!empty($_SESSION['businessID'])){
 }
 else{
     require("NavBar.php");
-    echo "ID: ".$SESSION['businessID'];
+    echo "ID: ".$_SESSION['businessID'];
     echo $publisher->Type;
 }
 ?>
