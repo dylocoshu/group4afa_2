@@ -1,6 +1,5 @@
-
-<!DOCTYPE html>
 <?php require("verify_login.php");?>
+<!DOCTYPE html>
 
 
 <?php
