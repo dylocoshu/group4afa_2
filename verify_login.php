@@ -20,4 +20,5 @@ if(!empty($_SESSION["businessID"])){
 else{
     require("NavBar.php");
 }
+echo $publisher->Type;
 ?>
