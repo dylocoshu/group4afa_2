@@ -57,7 +57,7 @@
                 <tr> 
                     <td> <?php echo $rows_array[$x]->Question?></td>
                     <td class = "answer"> <?php echo $rows_array[$x]->Answer?></td>
-                    <td> <?php if(strtolower($rows_array[$x][1]) == "no"){echo $rows_array[$x]->Action_Point;}else{echo "N/A";}?></td>
+                    <td> <?php if(strtolower($rows_array[$x]->Answer) == "no"){echo $rows_array[$x]->Action_Point;}else{echo "N/A";}?></td>
                 </tr>
                 <?php } ?>
             <?php } ?>

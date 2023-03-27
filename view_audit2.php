@@ -1,7 +1,7 @@
-<head>
 <?php require("verify_login.php")?>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="view-audit_style.css">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="view-audit_style.css">
 </head>
 <table>
   <thead>
@@ -17,19 +17,23 @@
     // Open database connection
     #$db = new SQLite3('/xampp/Data/test.db');
 
-    // Get list of audits with completion status
-    $result = $db->query('SELECT ar.AnswerID, ar.Date, ar.CustomerID, 
-        CASE WHEN COUNT(a.Answer) < COUNT(q.Question) THEN "No" ELSE "Yes" END AS Completed
-        FROM Audit_Response ar
-        LEFT JOIN Answers a ON ar.AnswerID = a.AnswerID
-        LEFT JOIN Questions q ON a.QuestionID = q.QuestionID
-        GROUP BY ar.AnswerID, ar.Date, ar.CustomerID');
+    // Get list of audits with completion status for the current user
+    $sql = 'SELECT ar.AnswerID, ar.Date, 
+            CASE WHEN COUNT(a.Answer) < COUNT(q.Question) THEN "No" ELSE "Yes" END AS Completed
+            FROM Audit_Response ar
+            LEFT JOIN Answers a ON ar.AnswerID = a.AnswerID
+            LEFT JOIN Questions q ON a.QuestionID = q.QuestionID
+            WHERE ar.CustomerID = :CID
+            GROUP BY ar.AnswerID, ar.Date';
+
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(":CID", $_SESSION['businessID']);
+    $stmt->execute();
 
     // Loop through each audit and display as a row in the table
     while ($row = $stmt->fetchObject()) {
         $answerID = $row->AnswerID;
-        $date = $row-> Date;
-        $customerID = $row->CustomerID;
+        $date = $row->Date;
         $completed = $row->Completed === 'Yes';
 
         // Display audit as a row in the table
@@ -41,14 +45,14 @@
         if ($completed) {
             echo "Already completed";
         } else {
-            echo "<a href='complete_audit.php?answerID=$answerID&customerID=$customerID'>Complete Audit</a>";
+            echo "<a href='complete_audit.php?answerID=$answerID&customerID={$_SESSION['businessID']}'>Complete Audit</a>";
         }
         echo "</td>";
         echo "</tr>";
     }
 
     // Close database connection
-    $db->close();
+    #$db->close();
     ?>
   </tbody>
 </table>
