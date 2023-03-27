@@ -1,6 +1,7 @@
-<?php session_start() ?>
+
 <?php
 include('includes/config.php');
+session_start();
 if(isset($_POST['submit'])){
    //Retrieve the user account information for the given username.
    $username = $_POST['username'];
@@ -20,7 +21,7 @@ if(isset($_POST['submit'])){
    if ($publisher) {
       $_SESSION['username'] = $username;
       $_SESSION['businessID'] = $publisher->BusinessID;
-      header("Location: homepage.php");
+      echo $_SESSION['businessID'];
    } else {
       echo '<script>alert("invalid username or password")</script>';
    }
