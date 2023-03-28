@@ -1,4 +1,4 @@
-<?php require("includes/verify_login.php");?>
+<?php require("verify_login.php");?>
 
 <!DOCTYPE html>
 <?php

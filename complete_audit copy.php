@@ -1,5 +1,9 @@
 <head>
+<<<<<<< HEAD:complete_audit copy.php
 <?php require("includes/verify_login.php")?>
+=======
+<?php require("verify_login.php")?>
+>>>>>>> ff04f24733b7f163a87778ecc75f69a3a8e7f1e2:audit/complete_audit.php
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="view-audit_style.css">
 </head>

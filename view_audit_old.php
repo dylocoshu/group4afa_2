@@ -1,5 +1,5 @@
 <html>
-    <?php require("includes/verify_login.php")?>
+    <?php require("verify_login.php")?>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
