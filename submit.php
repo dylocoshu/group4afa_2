@@ -42,6 +42,6 @@ $result = $stmt->execute();
 $db->close();
 
 
-header('Location: homepage.php');
+header('Location: Index.php');
 
 ?>
