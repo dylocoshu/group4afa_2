@@ -1,5 +1,5 @@
 
-
+<?php require('includes/config.php'); ?>
 <?php 
 $amount = 0;
 #$db = new SQLite3('/xampp/Data/test.db');
@@ -99,7 +99,7 @@ if(isset($_POST['delete'])){
                                     <tr>
                                         <td><strong><?php echo $rows_array[$x]->Question?></strong></td>
                                         <td><strong><?php echo $rows_array[$x]->Action_Point;?></strong></td>
-                                        <?php if($rows_array[$x][1]){ ?><td> <button type="submit" name="delete" value= <?php echo $rows_array[$x]->QuestionID ?>> Delete </button></td><?php } ?>
+                                        <?php if($rows_array[$x]->Action_Point){ ?><td> <button type="submit" name="delete" value= <?php echo $rows_array[$x]->QuestionID ?>> Delete </button></td><?php } ?>
                                       
                                     </tr>
                                     <?php }?>
