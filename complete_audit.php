@@ -115,6 +115,7 @@ WHERE Answers.AnswerID = $answerID");
             $answer = $row->Answer;
             $amount += 1;
 			echo $questionID;
+			echo $amount;
         ?>
         <tr>
             <td><?php echo $question; ?></td>
@@ -136,9 +137,9 @@ WHERE Answers.AnswerID = $answerID");
 
     for($x = 0; $x < $amount; $x++){
         
-		$y = $x++;
+		$y = $x+1;
 		
-        $answer = $_POST["answer_$x"];
+        $answer = $_POST["answer_$y"];
         
 
         
