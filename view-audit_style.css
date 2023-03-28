@@ -63,3 +63,8 @@
     background: black;
   }
   
+
+  button.incomplete {
+    background-color: #FFC107; /* Amber color */
+    color: #fff; /* White text */
+}

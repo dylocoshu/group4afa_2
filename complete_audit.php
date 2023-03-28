@@ -2,6 +2,7 @@
 <?php require("verify_login.php")?>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="view-audit_style.css">
+<link rel="stylesheet" href="create_audit_style.css">
 </head>
 
 <?php
