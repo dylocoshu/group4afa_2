@@ -57,20 +57,6 @@ $stmt = $db->prepare($sql_stmnt);
             <input type="search" name="searchValue" placeholder="Search" value=<?php if(isset($_POST['submit'])){;}?>>
             <button class="w-20 btn btn-primary" style="align: center; float:left;" type="submit" name="submit" value="submitLocation">Search</button>  
 
-
-
-        <button id="changeFontSizeBtn">Change font size</button>
-        <script>
-            var changeFontSizeBtn = document.getElementById("changeFontSizeBtn");
-
-            changeFontSizeBtn.addEventListener("click", function() {
-            var elements = document.querySelectorAll("body .bgcolor");
-            for (var i = 0; i < elements.length; i++) {
-                <?php echo "1"?>
-                elements[i].style.fontSize = "5px"; // Change to the desired font size
-            }
-            });
-        </script>
         </body>
     </div>
         <body>

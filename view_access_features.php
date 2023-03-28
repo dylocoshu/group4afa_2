@@ -38,16 +38,16 @@
     //gets access features from question id
 
     ?>
-
+    <?php $af_amount = 0; ?>
     <?php for($x = 0; $x < $q_amount; $x++){
         
         
-        $sql = "SELECT Action_Point FROM Questions WHERE QuestionID = :id";
+        $sql = "SELECT Question FROM Questions WHERE QuestionID = :id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id', $rows_array_q[$x]->QuestionID);
         $result = $stmt->execute();
         $rows_array = [];
-        $af_amount = 0;
+        
 
 
         while ($row=$stmt->fetchObject())
@@ -56,24 +56,35 @@
             $rows_array_af[]=$row;
         }
         ?>
-
-        <p><?php echo $rows_array_af[$x]->Action_Point ?> </h1>
         <?php }?>
-    <?php }?>
+        <?php }?>
+
+
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="homepage_style.css">
         <title>Everybody Welcome</title>
-    </head>
+</head>
+<?php if($amount != 0) {?>
 
+<table>
+  <thead>
+    <tr align = "center">
+      <th>Accessibility</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php for($x = 0; $x < $af_amount; $x++){ ?>
+    <tr align = "center">
+        <td><strong> <?php echo $rows_array_af[$x]->Question ?></strong> </td>
+        <td><?php echo '&#x2714;'?></td>
+    </tr>
+    <?php } ?>
+  </tbody>
+</table>
 
-
-
-
-
-
-
-
+<?php } ?>
 </html>
