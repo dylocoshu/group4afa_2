@@ -27,10 +27,12 @@ echo $answerID;
     #$db = new SQLite3('/xampp/Data/test.db');
     
     // Get list of questions for the given answer ID
-    $result = $db->query("SELECT a.QuestionID, q.Question, a.Answer
-	FROM Answers a
-	INNER JOIN Questions q ON a.QuestionID = q.QuestionID
-	WHERE a.AnswerID = $answerID");
+    
+
+$result = $db->query("SELECT Questions.Question, Answers.Answer, Questions.QuestionID 
+FROM Answers 
+INNER JOIN Questions ON Answers.QuestionID = Questions.QuestionID 
+WHERE Answers.AnswerID = $answerID");
 	
 	
 	
@@ -130,7 +132,7 @@ echo $answerID;
     
 	
     
-    echo $amount;
+    
 
     for($x = 0; $x < $amount; $x++){
         
