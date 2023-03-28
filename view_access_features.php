@@ -1,5 +1,5 @@
 <html>
-<?php require("verify_login.php");?>
+<?php require("includes/verify_login.php");?>
 <?php
 //gets recent answerid audit
     #$db = new SQLite3('/xampp/Data/test.db');
@@ -63,8 +63,8 @@
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="homepage_style.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/homepage_style.css">
         <title>Everybody Welcome</title>
     </head>
 
