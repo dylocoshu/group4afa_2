@@ -1,5 +1,5 @@
 <html>
-<?php require("navbars/NavBar.php");?>
+<?php require("NavBar.php");?>
 
 
 <?php
@@ -18,7 +18,7 @@ while ($row=$result->fetchArray())
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="style.css">
         <title>Access for All</title>
     </head>
     <body>

@@ -1,7 +1,7 @@
 <head>
 <?php require("includes/verify_login.php")?>
-<link rel="stylesheet" href="styles/style.css">
-<link rel="stylesheet" href="styles/view-audit_style.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="view-audit_style.css">
 </head>
 
 <?php

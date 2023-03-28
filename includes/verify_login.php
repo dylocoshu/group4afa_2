@@ -11,14 +11,14 @@ if(!empty($_SESSION['businessID'])){
     $publisher = $stmt->fetchObject();
 
     if($publisher->Type === "Admin"){
-        require("navbars/admin_NavBar.php");
+        require("admin_NavBar.php");
     }
     else{
-        require("navbars/user_NavBar.php");
+        require("user_NavBar.php");
 
     }
 }
 else{
-    require("navbars/NavBar.php");
+    require("NavBar.php");
 }
 ?>
