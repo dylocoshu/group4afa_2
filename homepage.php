@@ -1,6 +1,5 @@
-
-<!DOCTYPE html>
 <?php require("verify_login.php");?>
+<!DOCTYPE html>
 
 
 <?php
@@ -31,7 +30,7 @@ $stmt = $db->prepare($sql_stmnt);
 
  $stmt->execute();
 
-
+#'
 
 
 

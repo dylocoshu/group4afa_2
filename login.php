@@ -1,6 +1,7 @@
-<?php session_start() ?>
 <?php
+session_start();
 include('includes/config.php');
+//i
 if(isset($_POST['submit'])){
    //Retrieve the user account information for the given username.
    $username = $_POST['username'];
@@ -8,24 +9,23 @@ if(isset($_POST['submit'])){
    $sql = "SELECT BusinessID, Venue_Type FROM Business_Owner WHERE Username = :username AND Password = :password";
    $stmt = $db->prepare($sql);
    
-   //Bind value.
+   //Bind value
    $stmt->bindValue(':username', $username);
    $stmt->bindValue(':password', $pass);
   
    
-   //Execute.
+   //Execute
    $stmt->execute();
-   $publisher = $stmt->fetch(PDO::FETCH_ASSOC);
+   $publisher = $stmt->fetchObject();
    
    if ($publisher) {
-      $_SESSION["username"] = $username;
-      $_SESSION["businessID"] = $publisher['BusinessID'];
-     header("Location: homepage.php");
+      $_SESSION['username'] = $username;
+      $_SESSION['businessID'] = $publisher->BusinessID;
+      echo $_SESSION['businessID'];
    } else {
       echo '<script>alert("invalid username or password")</script>';
    }
-}
-   
+}   
 ?>
 <html lang="en">
 <?php require("NavBar.php"); ?>
