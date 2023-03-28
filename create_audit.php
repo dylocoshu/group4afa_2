@@ -50,7 +50,7 @@ if(isset($_POST['delete'])){
 ?>
 
 <html>
-    <?php require("includes/verify_login.php")?>
+    <?php require("verify_login.php")?>
     <?php 
     #$db = new SQLite3('/xampp/Data/test.db')
     ?>

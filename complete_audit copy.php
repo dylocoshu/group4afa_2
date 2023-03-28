@@ -1,5 +1,5 @@
 <head>
-<?php require("includes/verify_login.php")?>
+<?php require("verify_login.php")?>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="view-audit_style.css">
 </head>

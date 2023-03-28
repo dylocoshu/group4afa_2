@@ -28,7 +28,7 @@
 <body class = "bgcolor">
 	<nav>
 		<div class = "nav-text-effects"> <img src = 'images/Everybody_Welcome.png'  alt="Everybody Welcome" width = 200 height = 80 > <a href="About.php" > About Us </a>  
-    <a href="Index.php"> Venues </a> <a href="audit/answer_audit.php"> Enter an Audit </a>  <a href="audit/view_audit.php"> View Audits </a></div>
+    <a href="Index.php"> Venues </a> <a href="answer_audit.php"> Enter an Audit </a>  <a href="view_audit.php"> View Audits </a></div>
 		<div class = "nav-text-effects">
       <a href="qrcode.php?id=<?php echo $_SESSION["businessID"];?>" > QR Code </a>
       <a href="logout.php" > Logout </a>
