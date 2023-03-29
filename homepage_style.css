@@ -5,10 +5,9 @@
     grid-area: homepage-access-features;
     justify-items: stretch;
     text-align: center;
-    /* display: flex; */
-    justify-content: left;
-    /* align-items: center; */
+    padding: 1em; /* Add some padding for better spacing */
 }
+
 .homepage-table{
     background: rgb(81, 83, 81, 0.3);
     display: inline-table;
@@ -18,10 +17,13 @@
     justify-items: stretch;
     justify-self: center;
     align-items: center;
+    font-size: 1.2em; /* Use a relative font size */
 }
+
 tr{
     transition: all .2s ease-in-out; 
 }
+
 tr:hover{
     background-color: rgb(241, 236, 236);
     transform: scale(1.01);
@@ -35,15 +37,29 @@ tr:hover{
     border-radius: 20px;
     display: flex;
     align-items: center;
+    padding: 1em; /* Add some padding for better spacing */
+    font-size: 1.2em; /* Use a relative font size */
 }
 
 .homepage-grid{
     display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-gap: 0.5rem;
+    grid-template-areas:
+    "homepage-search"
+    "homepage-table"
+    "homepage-access-features";
+}
+
+@media (min-width: 768px) {
+  /* Apply these styles only for screens that are 768px wide or larger */
+  .homepage-grid {
     grid-template-columns: .5fr 1.5fr 3fr 1fr;
     grid-template-rows:1fr 1fr 4.5fr;
-    grid-gap: 0.5rem;
     grid-template-areas:
     ". . . ."
     ". homepage-search homepage-table ."
     ". homepage-access-features homepage-table .";
+  }
 }

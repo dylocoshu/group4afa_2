@@ -69,8 +69,8 @@
                 <?php } ?>
             </table>
             <?php if (!$completed) {
-    echo "<button type='button' value='" . $answerID . "' class='btn btn-primary'>
-    <a href='complete_audit.php?answerID=" . $answerID . "&customerID=" . $_SESSION['businessID'] . "'>Complete Audit</a>
+    echo "<button type='button' onclick=\"window.location.href='complete_audit.php?answerID=" . $answerid . "&customerID=" . $_SESSION['businessID'] . "'\">
+    Complete Audit
 </button>";} ?>
             <?php } ?>
         </div>
