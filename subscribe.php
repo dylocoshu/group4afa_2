@@ -1,3 +1,6 @@
+
+
+
 <div class="text-above">
   
   <p>Investing in Everybody Welcome can be a wise decision for venue owners and operators who want to promote accessibility and inclusion in their businesses. By paying for this tool, venue owners can easily record and share information about their venue's accessibility features, which can attract more customers who are looking for accessible options. This can result in increased revenue and customer loyalty, as well as a positive reputation for the venue as a welcoming and inclusive space. Additionally, using Everybody Welcome demonstrates a commitment to accessibility, which can help comply with legal requirements and avoid potential lawsuits related to accessibility barriers. Finally, by using Everybody Welcome, venue owners can contribute to a more inclusive society, promoting equal access to public spaces for all individuals, regardless of their abilities</p>

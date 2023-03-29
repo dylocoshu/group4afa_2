@@ -6,18 +6,25 @@ $amount = 0;
 
 
 if(isset($_POST['add-question'])){
-    $sql = "INSERT INTO Questions (Question, Venue_Type, Action_Point)
-    VALUES (:Q, :VT, :AP)";
+    $no = "No";
+    $sql = "INSERT INTO Questions (Question, Venue_Type, Action_Point, Premium)
+    VALUES (:Q, :VT, :AP, :P)";
     $stmt = $db -> prepare($sql);
     $stmt->bindParam(":Q", $_POST['question']);
     $stmt->bindParam(":VT", $_POST['venue-type']);
     $stmt->bindParam(":AP", $_POST['action-point']);
+    if(isset($_POST['premium_check'])){
+        $stmt->bindParam(":P", $_POST['premium_check']);
+    }
+    else{
+        $stmt->bindParam(":P", $no);
+    }
     $result = $stmt->execute();
 }
 
 if (isset($_POST['venue-type'])){
     $venue=$_POST['venue-type'];
-    $sql = "SELECT Question, Action_Point, QuestionID FROM Questions WHERE Venue_Type = :venue";
+    $sql = "SELECT Question, Action_Point, QuestionID, Premium FROM Questions WHERE Venue_Type = :venue";
     $stmt = $db -> prepare($sql);
     $stmt->bindParam(":venue", $venue);
     if(isset($_POST['venue-type'])){
@@ -79,6 +86,10 @@ if(isset($_POST['delete'])){
                     <td> <label> Action Point: </label> </td>
                     <td> <input name = "action-point"></td>
                 </tr>
+                <tr> 
+                    <td> <label> Premium Question: </label> </td>
+                    <td>  <label><input type="checkbox" name=<?php echo "premium_check"?> value="Yes"> Yes</label> </td>
+                </tr>
                 <tr>
                     <td> <button class = qna-box-button type="submit" name="add-question"> Add Question </button></td>
                 </tr>
@@ -92,13 +103,15 @@ if(isset($_POST['delete'])){
                         <tr class="tableHead">
                             <th>Question</th>
                             <th>Action Point</th>
-                            <th></th>
+                            <th>Premium Question</th>
+                            <th>Options</th>
                             
                         </tr>
                         <?php for($x = 0  ; $x < $amount; $x+=1){;?>
                                     <tr>
                                         <td><strong><?php echo $rows_array[$x]->Question?></strong></td>
                                         <td><strong><?php echo $rows_array[$x]->Action_Point;?></strong></td>
+                                        <td><strong><?php echo $rows_array[$x]->Premium;?></strong></td>
                                         <?php if($rows_array[$x]->Action_Point){ ?><td> <button type="submit" name="delete" value= <?php echo $rows_array[$x]->QuestionID ?>> Delete </button></td><?php } ?>
                                       
                                     </tr>

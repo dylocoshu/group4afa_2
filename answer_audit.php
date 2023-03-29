@@ -4,13 +4,22 @@
 	?>
 <html>
 
-	<?php 
+	<?php
+	$user_sql = "SELECT Premium FROM business_owner WHERE Username = :username AND BusinessID = :bid";
+
+	$stmt = $db->prepare($user_sql);
+	$stmt->bindParam(":username", $_SESSION["username"]);
+	$stmt->bindParam(":bid", $_SESSION["businessID"]);
+	$result = $stmt->execute();
+	$publisher = $stmt->fetchObject();
+	$status = $publisher->Premium;
+
 	$answer_id = rand(1,1500);
 	$customer_id = rand(1,1500);
 	if(isset($_POST['submit-button'])){
 		$row_amount = 0;
 		$questionidArray = [];
-		$sql_stmnt = "SELECT QuestionID, Question FROM Questions WHERE Venue_Type =  :V OR Venue_Type = 'General' ORDER BY Venue_Type ASC";
+		$sql_stmnt = "SELECT QuestionID, Question FROM Questions WHERE Venue_Type =  :V OR Venue_Type = 'General'";
 		$stmt = $db->prepare($sql_stmnt);
 		$stmt->bindParam(":V", $_POST["venue-type"]);
 		$result = $stmt->execute();
@@ -132,7 +141,13 @@
 
 			$amount = 0;
 				if(isset($_POST["audit-button"])){
-					$sql_stmnt = "SELECT QuestionID, Question FROM Questions WHERE Venue_Type =  :V OR Venue_Type = 'General' ORDER BY Venue_Type ASC";
+					
+					if($status == "Yes"){
+						$sql_stmnt = "SELECT QuestionID, Question, Premium FROM Questions WHERE Venue_Type =  :V OR Venue_Type = 'General' ORDER BY Venue_Type ASC";
+					}
+					else{
+						$sql_stmnt = "SELECT QuestionID, Question, Premium FROM Questions WHERE  Premium = '$status'  AND  Venue_Type =  :V OR Venue_Type = 'General' ORDER BY Venue_Type ASC";
+					}
 					$stmt = $db->prepare($sql_stmnt);
 					$stmt->bindParam(":V", $_POST["venue-type"]);
 					$result = $stmt->execute();
