@@ -31,6 +31,7 @@
     <a href="Index.php"> Venues </a> <a href="answer_audit.php"> Enter an Audit </a>  <a href="view_audit.php"> View Audits </a></div>
 		<div class = "nav-text-effects">
       <a href="qrcode.php?id=<?php echo $_SESSION["businessID"];?>" > QR Code </a>
+      <a href="account_update.php" > Account Settings </a>
       <a href="logout.php" > Logout </a>
   </div>
 	</nav>

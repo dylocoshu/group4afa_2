@@ -108,8 +108,10 @@ WHERE Answers.AnswerID = $answerID");
     <tbody>
         <?php 
         $amount = 0;
+		$qid_array = [];
         while ($row = $result->fetchObject()) {
             $questionID = $row->QuestionID;
+			$qid_array[] = $questionID;
             $question = $row->Question;
             $answer = $row->Answer;
             $amount += 1;
@@ -135,7 +137,7 @@ WHERE Answers.AnswerID = $answerID");
 
     for($x = 0; $x < $amount; $x++){
         
-		$y = $x+1;
+		$y = $qid_array[$x];
 		
         $answer = $_POST["answer_$y"];
         
