@@ -3,8 +3,7 @@
 require("verify_login.php"); 
 $answerID = $_GET['answerID'];
 $customerID = $_GET['customerID'];
-echo $customerID;
-echo $answerID;
+
 // $result = $db->query("SELECT QuestionID FROM Answers WHERE AnswerID = $answerID");
 // $amount = $result->rowCount(); // count the number of rows returned
 // echo $amount;
@@ -114,8 +113,7 @@ WHERE Answers.AnswerID = $answerID");
             $question = $row->Question;
             $answer = $row->Answer;
             $amount += 1;
-			echo $questionID;
-			echo $amount;
+			
         ?>
         <tr>
             <td><?php echo $question; ?></td>
@@ -158,6 +156,7 @@ $stmt->bindParam(":AID", $answer_id);
 $stmt->bindParam(":CID", $_SESSION['businessID']);
 $stmt->bindParam(":Date", $current_date);
 $result = $stmt->execute();
+header('Location:view_audit.php');
 
 }?>
 </html>
