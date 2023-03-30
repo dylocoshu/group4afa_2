@@ -70,28 +70,58 @@ if(isset($_POST['Update'])){
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="create_audit_style.css">
         <title>Everybody Welcome</title>
+        <style>
+            .wrap {
+                position: relative;
+                align-items: center;
+                text-align: center;
+                background-color: red;
+                left: 0%;
+                
+            }
+            .wrap table{
+                position: absolute;
+                left: 15%;
+            }
+        </style>
     </head>
 <form method = "POST">
+    <section>
     <div class = "cas-grid"> 
         <div class = "qna-box-grid">
             <table style="width: 100%; text-align: center;">
                 <tr>
-                    <td> <label > Select a Venue </label></td>
-                    <td><input value = "<?php echo isset($_SESSION['venue-type']) ? $_SESSION['venue-type'] : '' ?>" type = "search" name ="venue-type" placeholder="Search"> </td>
-                    <td><button type = "submit" name="venue-button"> Venue Questions </button> </td>
-                    
-                </tr>
-                <tr>
                     <td> <label > Question: </label></td>
-                    <td> <input  name = "question"></td>
+                    <td> <textarea rows = "4" cols = "30" name = "question"> </textarea></td>
                 </tr>
                 <tr> 
                     <td> <label> Action Point: </label> </td>
-                    <td> <input name = "action-point"></td>
+                    <td> <textarea rows = "4" cols = "30" name = "action-point"> </textarea></td>
                 </tr>
                 <tr> 
                     <td> <label> Premium Question: </label> </td>
                     <td>  <label><input type="checkbox" name=<?php echo "premium_check"?> value="Yes"> Yes</label> </td>
+                </tr>
+                <tr>
+                    <?php                         
+                    $vt_sql = "SELECT DISTINCT Venue_Type FROM Questions ";
+                    $stmt = $db->prepare($vt_sql);
+                    $stmt->execute();
+                    $rows_array_vt = [];
+                    $amount_vt = 0;
+                    while ($row_vt=$stmt->fetchObject())
+                    {
+                    $amount_vt += 1;
+                    $rows_array_vt[]=$row_vt;
+                    }?>
+                    <td> <label > Select a Venue </label></td>
+                    <td><select id = "Venue_Type" name ="venue-type">
+                    <?php for   ($x=0;$x < $amount_vt; $x++ ) { ?>
+                        <option value="<?php echo $rows_array_vt[$x]->Venue_Type?>"> <?php echo $rows_array_vt[$x]->Venue_Type?> </option>
+                    <?php } ?>
+                    </select> </td>
+                    <td><button type = "submit" name="venue-button"> Venue Questions </button> </td>
+                    
                 </tr>
                 <tr>
                     <td> <button class = qna-box-button type="submit" name="add-question"> Add Question </button></td>
@@ -99,10 +129,13 @@ if(isset($_POST['Update'])){
             </table>
         </div>
     </div>
+                    </section>
 </form>
 <form method="POST">
+    <section>
+    <div class = wrap>
                 <div class = "homepage-table">
-                    <table style="width: 100%; text-align: center;">
+                    <table style="width: 70%; text-align: center;">
                         <tr class="tableHead">
                             <th>Question</th>
                             <th>Action Point</th>
@@ -115,9 +148,9 @@ if(isset($_POST['Update'])){
                                         <td><strong><?php echo $rows_array[$x]->Question?></strong></td>
                                         <td><strong><?php echo $rows_array[$x]->Action_Point;?></strong></td>
                                         <td><strong><?php echo $rows_array[$x]->Premium;?></strong></td>
-                                        <?php if($rows_array[$x]->Action_Point){ ?><td> <button type="submit" name="delete" value= <?php echo $rows_array[$x]->QuestionID ?>> Delete </button>
+                                        <td> <button type="submit" name="delete" value= <?php echo $rows_array[$x]->QuestionID ?>> Delete </button>
                                         <button type="submit" name="Update" value= <?php echo $rows_array[$x]->QuestionID ?>> Update </button>
-                                        </td><?php } ?>
+                                        </td>
                                       
                                     </tr>
                                     <?php }?>
@@ -125,7 +158,8 @@ if(isset($_POST['Update'])){
 
                         
                                 </div>
-                                
+                        </div>
+                        </section>
                         </form>
                                
 </html>
