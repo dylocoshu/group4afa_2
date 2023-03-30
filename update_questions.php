@@ -1,11 +1,10 @@
 <?php
 include("verify_login.php");
-$sql = "SELECT Email, Business_Name, Venue_Type,Location,Link,Postcode, Business_Description FROM Business_Owner WHERE Username = :username AND BusinessID = :bid";
+$sql = "SELECT * FROM Questions WHERE QuestionID = :QID";
 $stmt = $db->prepare($sql);
 
 //Bind value
-$stmt->bindValue(':username', $_SESSION['username']);
-$stmt->bindValue(':bid', $_SESSION['businessID']);
+$stmt->bindValue(':QID', $_GET['id']);
 
 
 //Execute
@@ -14,24 +13,23 @@ $publisher = $stmt->fetchObject();
 
 
 if (isset($_POST["submit"])){
-    $details_arr = ["email","business-name","venue-type","location","postcode","business-desc","link"];
-    $sql_arr = ["Email","Business_Name","Venue_Type","Location","Postcode","Business_Description","Link"];
+    $details_arr = ["Question","Venue_Type","Action_Point","Premium"];
+    $sql_arr = ["Question","Venue_Type","Action_Point","Premium"];
     for($x = 0; $x < sizeof($details_arr); $x++){
         if(isset($_POST[$details_arr[$x]])){
             $sql_arr_idx = $sql_arr[$x];
-            $sql = "UPDATE business_owner SET $sql_arr_idx = :sql_col WHERE Username = :username AND BusinessID = :bid   ";
+            $sql = "UPDATE Questions SET $sql_arr_idx = :sql_col WHERE QuestionID = :QID";
             $stmt = $db->prepare($sql);
 
             //Bind value
-            $stmt->bindValue(':username', $_SESSION['username']);
-            $stmt->bindValue(':bid', $_SESSION['businessID']);
+            $stmt->bindValue(':QID', $_GET['id']);
             $stmt->bindValue(':sql_col', $_POST[$details_arr[$x]]);
 
             //Execute
             $stmt->execute();
         }
     }
-    //header("Location: Index.php");
+    //header("Premium: Index.php");
 }
 
 
@@ -62,23 +60,34 @@ if (isset($_POST["submit"])){
                 <div class="create-an-account-box">
                     <div class = "cac-details">
                         <div style="padding-bottom: 10px"> <header align = "center">Account Details</header> </div>
-                        <label for="email">Email Address</label>
-                        <input id = "email" name = "email" value = "<?php echo $publisher->Email?>"></br>
-                        <label for="business-name">Business Name</label>
-                        <input id = "business-name" name = "business-name" value =" <?php echo $publisher->Business_Name?>"></br>
-                        <label for="venue-type">Venue Type</label>
-                        <input id = "venue-type" name = "venue-type" value = "<?php echo $publisher->Venue_Type?>"></br>
-                        <label for="location">Location</label>
-                        <input id = "location" name = "location" value = "<?php echo $publisher->Location?>"></br>
-                        <label for="postcode">Postcode</label>
-                        <input id = "postcode" name = "postcode" value = "<?php echo $publisher->Postcode?>"></br>
-                        <label for="business-desc">Description of your Business</label>
-                        <input id = "business-desc" name="business-desc" value = "<?php echo $publisher->Business_Description ?>"></input></br>
-                        <label for="link">Link to your Website</label> 
-                        <input size = "100" id = "link" name="link" value = "<?php echo $publisher->Link?>"></input></br>
+                        <label for="Question">Question </label>
+                        <textarea id = "Question" name  = "Question" rows = "4" cols = "50" placeholder = "<?php echo $publisher->Question?>">  <?php echo $publisher->Question?></textarea></br>
+                        <label for="Venue_Type">Venue Type</label>
+                        <?php 
+                        $vt_sql = "SELECT DISTINCT Venue_Type FROM Questions ";
+                        $stmt = $db->prepare($vt_sql);
+                        $stmt->execute();
+                        $rows_array = [];
+                        $amount = 0;
+                        while ($row=$stmt->fetchObject())
+                        {
+                        $amount += 1;
+                        $rows_array[]=$row;
+                        }
+                        $unique_vt = $stmt->fetchObject();
+                        ?>
+                        <select id = "Venue_Type" name = "Venue_Type" value ="<?php echo $publisher->Venue_Type?>">
+                        <?php for   ($x=0;$x < $amount; $x++ ) {?>
+                            <option value="<?php echo $rows_array[$x]->Venue_Type?>"> <?php echo $rows_array[$x]->Venue_Type?> </option>
+                        <?php }?>
+                        <label for="Action_Point">Action Point</label>
+                        <textarea id = "Action_Point" name = "Action_Point" rows = "4" cols = "50" placeholder = "<?php echo $publisher->Action_Point?>"> <?php echo $publisher->Action_Point?>     </textarea></br>
+                        <label for="Premium">Premium</label>
+                        <input type = "checkbox" id = "Premium" name = "Premium" value = "Yes" <?php if($publisher->Premium == "Yes") { ?> checked <?php } ?>></br>
+                        <input type = "hidden" id = "Premium" name = "Premium" value = "No" <?php if($publisher->Premium == "Yes") { ?> checked <?php } ?>></br>
                     </div>
                     <div class = "row-submit"> 
-                    <button class="w-20 btn btn-lg btn-primary" style="align: center" type="submit" name="submit" value="submitLocation">Update</button> 
+                    <button class="w-20 btn btn-lg btn-primary" style="align: center" type="submit" name="submit" value="submitPremium">Update</button> 
                 </div>
                 </div>
             </div>
