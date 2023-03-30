@@ -52,6 +52,9 @@ if(isset($_POST['delete'])){
     $result = $stmt->execute();
 }
 
+if(isset($_POST['Update'])){
+    Header("Location: update_questions.php?id=".$_POST["Update"]);
+}
 
       
 ?>
@@ -112,7 +115,9 @@ if(isset($_POST['delete'])){
                                         <td><strong><?php echo $rows_array[$x]->Question?></strong></td>
                                         <td><strong><?php echo $rows_array[$x]->Action_Point;?></strong></td>
                                         <td><strong><?php echo $rows_array[$x]->Premium;?></strong></td>
-                                        <?php if($rows_array[$x]->Action_Point){ ?><td> <button type="submit" name="delete" value= <?php echo $rows_array[$x]->QuestionID ?>> Delete </button></td><?php } ?>
+                                        <?php if($rows_array[$x]->Action_Point){ ?><td> <button type="submit" name="delete" value= <?php echo $rows_array[$x]->QuestionID ?>> Delete </button>
+                                        <button type="submit" name="Update" value= <?php echo $rows_array[$x]->QuestionID ?>> Update </button>
+                                        </td><?php } ?>
                                       
                                     </tr>
                                     <?php }?>
@@ -120,6 +125,7 @@ if(isset($_POST['delete'])){
 
                         
                                 </div>
+                                
                         </form>
                                
 </html>
