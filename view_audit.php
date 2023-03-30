@@ -44,7 +44,7 @@
             <?php
             if (isset($_POST['view-audit'])) {
                 $answerid = $_POST['view-audit'];
-                $sql = "SELECT Questions.Question, Answers.Answer, Questions.Action_Point 
+                $sql = "SELECT Questions.Question, Answers.Answer, Questions.Action_Point
                         FROM Answers 
                         INNER JOIN Questions ON Answers.QuestionID = Questions.QuestionID 
                         WHERE Answers.AnswerID = :AID";
@@ -57,6 +57,7 @@
                     <th>Question</th>
                     <th>Answer</th>
                     <th>Action Point</th>
+                    <th>Access Feature</th>
                 </tr>
                 <?php while($row=$stmt->fetchObject()){?>
                 

@@ -7,12 +7,13 @@ $amount = 0;
 
 if(isset($_POST['add-question'])){
     $no = "No";
-    $sql = "INSERT INTO Questions (Question, Venue_Type, Action_Point, Premium)
-    VALUES (:Q, :VT, :AP, :P)";
+    $sql = "INSERT INTO Questions (Question, Venue_Type, Action_Point,Access_Feature,Premium)
+    VALUES (:Q, :VT, :AP, :AF, :P)";
     $stmt = $db -> prepare($sql);
     $stmt->bindParam(":Q", $_POST['question']);
     $stmt->bindParam(":VT", $_POST['venue-type']);
     $stmt->bindParam(":AP", $_POST['action-point']);
+    $stmt->bindParam(":AF", $_POST['access-feature']);
     if(isset($_POST['premium_check'])){
         $stmt->bindParam(":P", $_POST['premium_check']);
     }
@@ -24,7 +25,7 @@ if(isset($_POST['add-question'])){
 
 if (isset($_POST['venue-type'])){
     $venue=$_POST['venue-type'];
-    $sql = "SELECT Question, Action_Point, QuestionID, Premium FROM Questions WHERE Venue_Type = :venue";
+    $sql = "SELECT Question, Action_Point, QuestionID, Premium, Access_Feature   FROM Questions WHERE Venue_Type = :venue";
     $stmt = $db -> prepare($sql);
     $stmt->bindParam(":venue", $venue);
     if(isset($_POST['venue-type'])){
@@ -99,6 +100,10 @@ if(isset($_POST['Update'])){
                     <td> <textarea rows = "4" cols = "30" name = "action-point"> </textarea></td>
                 </tr>
                 <tr> 
+                    <td> <label> Access Feature: </label> </td>
+                    <td> <input name = "access-feature"></td>
+                </tr>
+                <tr> 
                     <td> <label> Premium Question: </label> </td>
                     <td>  <label><input type="checkbox" name=<?php echo "premium_check"?> value="Yes"> Yes</label> </td>
                 </tr>
@@ -140,6 +145,7 @@ if(isset($_POST['Update'])){
                             <th>Question</th>
                             <th>Action Point</th>
                             <th>Premium Question</th>
+                            <th>Access Feature</th>
                             <th>Options</th>
                             
                         </tr>
@@ -148,6 +154,7 @@ if(isset($_POST['Update'])){
                                         <td><strong><?php echo $rows_array[$x]->Question?></strong></td>
                                         <td><strong><?php echo $rows_array[$x]->Action_Point;?></strong></td>
                                         <td><strong><?php echo $rows_array[$x]->Premium;?></strong></td>
+                                        <td><strong><?php echo $rows_array[$x]->Access_Feature;?></strong></td>
                                         <td> <button type="submit" name="delete" value= <?php echo $rows_array[$x]->QuestionID ?>> Delete </button>
                                         <button type="submit" name="Update" value= <?php echo $rows_array[$x]->QuestionID ?>> Update </button>
                                         </td>
