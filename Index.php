@@ -2,6 +2,43 @@
 
 <!DOCTYPE html>
 <?php
+     $query = isset($_GET['query']) ? $_GET['query'] : null;
+    
+    if($query){
+        $location = "";
+        $searchValue = $query;
+        $features_array= [];
+        if(!empty($_POST['features'])) {    
+            foreach($_POST['features'] as $value){
+                array_push($features_array, $value);
+            }
+        }
+        $features_string= implode(",",$features_array);
+    }
+    $sql_stmnt = "SELECT Business_Name, Venue_Type, Business_Description, Access_Features, Location, Postcode, BusinessID FROM Business_Owner 
+    WHERE Business_Name IS NOT NULL";
+    if(!empty($location)){
+        $sql_stmnt.= " AND Location = '$location'";
+    }
+    if(!empty($searchValue)){
+        $sql_stmnt.= " AND LOWER(Business_Description) LIKE LOWER('%$searchValue%') ";
+    }
+    if(!empty($features_string)){
+        $sql_stmnt.= " AND Access_Features LIKE '$features_string'";
+    }
+    $stmt = $db->prepare($sql_stmnt);
+    
+     $stmt->execute();
+    
+    
+
+
+
+    ?>
+
+<?php
+
+
 #$db = new SQLite3('/xampp/Data/test.db');
 if(isset($_POST['submit'])){
     $location = $_POST['locationDropdown'];

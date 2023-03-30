@@ -175,7 +175,7 @@ input.hamburger-checkbox {
       
       <nav>
         <strong> Login or Sign up </strong><br>
-        <a href="index.php"> Home </a>
+        <a href="home.php"> Home </a>
         
         
       </nav>
