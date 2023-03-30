@@ -32,7 +32,7 @@
 
 <body class = "bgcolor" >
 	<nav>
-		<div class = "nav-text-effects"> <img src = 'images/logo2.png'  alt="Everybody Welcome" width = 150 height = 80 >   </div>
+		<div class = "nav-text-effects"> <img src = 'images/logo2.png'  alt="Everybody Welcome" width = 150 height = 80 > <a href="About.php" > About Us </a>  <a href="Index.php"> Venues </a>  </div>
 		<div class = "nav-text-effects"><a href="login.php" > Login</a><a href="home.php" > Home</a></div>
 	</nav>
 </body>
