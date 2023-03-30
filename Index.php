@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
     }
     $features_string= implode(",",$features_array);
 }
-$sql_stmnt = "SELECT Business_Name, Venue_Type, Business_Description, Access_Features, Location, Postcode, BusinessID FROM Business_Owner 
+$sql_stmnt = "SELECT Business_Name, Venue_Type, Business_Description, Access_Features, Location, Postcode, BusinessID, Link FROM Business_Owner 
 WHERE Business_Name IS NOT NULL";
 if(!empty($location)){
     $sql_stmnt.= " AND Location = '$location'";
@@ -109,7 +109,7 @@ $stmt = $db->prepare($sql_stmnt);
                         </tr>
                         <?php while ($row=$stmt->fetchObject()){?>
                                     <tr>
-                                        <td><a href="https://www.cineworld.co.uk/cinemas/sheffield/031"><strong><?php echo $row->Business_Name?></strong></a></td>
+                                        <td><a href="<?php if(strstr($row->Link, "https://")){ echo $row->Link; }else{echo "https://".$row->Link;};?>"><strong><?php echo $row->Business_Name?></strong></a></td>
                                         <td><strong><?php echo $row->Venue_Type;?></strong></td>
                                         <td><strong><a href="view_access_features.php?id=<?php echo $row->BusinessID;?>">View Access Features</a></strong></td>
                                         <td><strong><?php echo $row->Location;?></strong></td>
@@ -122,12 +122,24 @@ $stmt = $db->prepare($sql_stmnt);
         </body>
         <div class = "homepage-access-features">
             <header><b> Filter by Access Features </b></header>
-                <input type="checkbox" id="vehicle1" name='features[]' value="Ramp" <?php if(!empty($features_string)){if(strpos($features_string, "Ramp") !== FALSE){?> checked <?php }}?> >
-                <label for="vehicle1"> Ramp</label><br>
-                <input type="checkbox" id="vehicle2" name='features[]' value="Accessible Toilets" <?php if(!empty($features_string)){if(strpos($features_string, "Accessible Toilets") !== FALSE) {?> checked <?php }}?>>
-                <label for="vehicle2"> Accessible Toilets</label><br>
-                <input type="checkbox" id="vehicle3" name='features[]' value="Disabled Parking" <?php if(!empty($features_string)){if(strpos($features_string, "Disabled Parking") !== FALSE) {?> checked <?php }}?>>
-                <label for="vehicle3"> Disabled Parking</label><br>
+                <?php 
+                $af_sql = "SELECT DISTINCT Access_Feature FROM Questions";
+                $stmt = $db->prepare($af_sql);
+                $stmt->execute();
+                $rows_array_af = [];
+                $amount_af = 0;
+                while ($row_af=$stmt->fetchObject())
+                {
+                $amount_af += 1;
+                $rows_array_vt[]=$row_af;
+                }
+                ?>
+                <?php for($x=0;$x < $amount_af; $x++){?>
+                    <?php if($rows_array_vt[$x]->Access_Feature != ""){?>
+                        <input type="checkbox" id="vehicle<?php echo $x?>" name='features[]' value="<?php echo $rows_array_vt[$x]->Access_Feature ?>" <?php if(!empty($features_string)){if(strpos($features_string, $rows_array_vt[$x]->Access_Feature) !== FALSE){?> checked <?php }}?>>
+                        <label for="vehicle<?php echo $x?>"> <?php echo $rows_array_vt[$x]->Access_Feature ?></label><br>
+                    <?php }?>
+                <?php } ?>
         </div>
                                 </form>
     </div>

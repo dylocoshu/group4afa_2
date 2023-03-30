@@ -42,7 +42,7 @@
     <?php for($x = 0; $x < $q_amount; $x++){
         
         
-        $sql = "SELECT Question FROM Questions WHERE QuestionID = :id";
+        $sql = "SELECT  Access_Feature FROM Questions WHERE QuestionID = :id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id', $rows_array_q[$x]->QuestionID);
         $result = $stmt->execute();
@@ -79,7 +79,7 @@
   <tbody>
     <?php for($x = 0; $x < $af_amount; $x++){ ?>
     <tr align = "center">
-        <td><strong> <?php echo $rows_array_af[$x]->Question ?></strong> </td>
+        <td><strong> <?php echo $rows_array_af[$x]->Access_Feature ?></strong> </td>
         <td><?php echo '&#x2714;'?></td>
     </tr>
     <?php } ?>

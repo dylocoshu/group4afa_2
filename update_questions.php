@@ -13,8 +13,8 @@ $publisher = $stmt->fetchObject();
 
 
 if (isset($_POST["submit"])){
-    $details_arr = ["Question","Venue_Type","Action_Point","Premium"];
-    $sql_arr = ["Question","Venue_Type","Action_Point","Premium"];
+    $details_arr = ["Question","Venue_Type","Action_Point","Premium", "Access_Feature"];
+    $sql_arr = ["Question","Venue_Type","Action_Point","Premium", "Access_Feature"];
     for($x = 0; $x < sizeof($details_arr); $x++){
         if(isset($_POST[$details_arr[$x]])){
             $sql_arr_idx = $sql_arr[$x];
@@ -82,6 +82,8 @@ if (isset($_POST["submit"])){
                         <?php }?>
                         <label for="Action_Point">Action Point</label>
                         <textarea id = "Action_Point" name = "Action_Point" rows = "4" cols = "50" placeholder = "<?php echo $publisher->Action_Point?>"> <?php echo $publisher->Action_Point?>     </textarea></br>
+                        <label for="Access_Feature">Access Feature</label>
+                        <input id = "Access_Feature" name = "Access_Feature" value = "<?php echo $publisher->Access_Feature?>"></br>
                         <label for="Premium">Premium</label>
                         <input type = "checkbox" id = "Premium" name = "Premium" value = "Yes" <?php if($publisher->Premium == "Yes") { ?> checked <?php } ?>></br>
                         <input type = "hidden" id = "Premium" name = "Premium" value = "No" <?php if($publisher->Premium == "Yes") { ?> checked <?php } ?>></br>
