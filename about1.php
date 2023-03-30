@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 <html>
-<?php require("nav2.php"); ?>
+
 	<head>
 		<title>About Us</title>
 		<meta charset="utf-8" />
@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="assets/css/main1.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
+	<?php require("nav2.php"); ?>
 	<body class="left-sidebar is-preload">
 		<div id="page-wrapper">
 

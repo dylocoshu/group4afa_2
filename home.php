@@ -6,6 +6,13 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+<?php
+if(isset($_POST['submit-button'])) {
+    $query = urlencode($_POST['email']);
+    header("Location: Index.php?query=$query");
+    exit;
+}
+?>
 <?php require("nav.php"); ?>
 
 	<head>
@@ -28,7 +35,7 @@
 			</header>
 
 		<!-- Signup Form -->
-		<form id="signup-form" method="post" action="about1.php">
+		<form id="signup-form" method="post" >
 			&nbsp &nbsp &nbsp 
 				<input type="text" name="email"  placeholder="Search Location" autocomplete="off"/>
 				<input type="submit" value="Enter" name="submit-button"  />
