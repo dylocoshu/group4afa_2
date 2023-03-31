@@ -44,8 +44,12 @@
 			$stmt = $db->prepare($user_sql);
 			$result = $stmt->execute();
 			$publisher_af = $stmt->fetchObject();
+			echo "dsjhbfdj".$_POST["answer".$questionidArray[$x]] ;
 			if(!in_array($publisher_af->Access_Feature, $af_array)){
-				$af_array[] = $publisher_af->Access_Feature;
+				if($_POST["answer".$questionidArray[$x]] == "Yes"){
+					$af_array[] = $publisher_af->Access_Feature;
+				}
+				
 			}
 		}
 
@@ -72,9 +76,6 @@
 	
 	
 	?>
-
-
-
 
 	<head>
 		<meta charset="utf-8">
@@ -172,8 +173,8 @@
 						<tr>
 							<td><?php echo $rows_array[$x]->Question ?></td>
 							<td>
-								<label><input type="radio" name=<?php echo "answer_$x"?> value="Yes"> Yes</label>
-								<label><input type="radio" name=<?php echo "answer_$x"?> value="No"> No</label>   
+								<label><input type="radio" name=<?php echo "answer_".$row->QuestionID?> value="Yes">Yes</label>
+								<label><input type="radio" name=<?php echo "answer_$row->QuestionID"?> value="No">No</label>   
 							</td>
 						</tr>
 					<?php } ?>
