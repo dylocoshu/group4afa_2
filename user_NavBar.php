@@ -30,7 +30,7 @@
 		<div class = "nav-text-effects"> <img src = 'images/logowhite.png'  alt="Everybody Welcome" width = 149 height = 65 > <a href="About.php" > About Us </a>  
     <a href="Index.php"> Venues </a> <a href="answer_audit.php"> Enter an Audit </a>  <a href="view_audit.php"> View Audits </a></div> <a href="toggle_premium.php"> Premium </a></div>
 		<div class = "nav-text-effects">
-      <a href="qrcode.php?id=<?php echo $_SESSION["businessID"];?>" > QR Code </a>
+      <a target="_blank" href="qrcode.php?id=<?php echo $_SESSION["businessID"];?>" > QR Code </a>
       <a href="account_update.php" > Account Settings </a>
       <a href="logout.php" > Logout </a>
   </div>

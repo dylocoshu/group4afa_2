@@ -122,7 +122,8 @@ if(isset($_POST['Update'])){
                 </tr>
                 <tr>
                     <?php                         
-                    $vt_sql = "SELECT DISTINCT Venue_Type FROM Questions ";
+                    $vt_sql = "SELECT DISTINCT Venue_Type FROM Questions 
+                    UNION SELECT DISTINCT Venue_Type FROM Business_Owner ";
                     $stmt = $db->prepare($vt_sql);
                     $stmt->execute();
                     $rows_array_vt = [];

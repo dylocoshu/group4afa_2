@@ -15,7 +15,7 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 127px;
+  padding-left: 100px;
 }
 nav a{
   padding: 5px;
@@ -298,7 +298,7 @@ body {
   
 }
 table {
-  table-layout:fixed;
+  table-layout: fixed;
   border-collapse: separate;
   width: 100%;   
 }

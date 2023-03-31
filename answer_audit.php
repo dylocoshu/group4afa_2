@@ -5,7 +5,7 @@
 <html>
 
 	<?php
-	$user_sql = "SELECT Premium FROM business_owner WHERE Username = :username AND BusinessID = :bid";
+	$user_sql = "SELECT Premium, Venue_Type FROM business_owner WHERE Username = :username AND BusinessID = :bid";
 
 	$stmt = $db->prepare($user_sql);
 	$stmt->bindParam(":username", $_SESSION["username"]);
@@ -13,6 +13,7 @@
 	$result = $stmt->execute();
 	$publisher = $stmt->fetchObject();
 	$status = $publisher->Premium;
+	$VT = $publisher->Venue_Type;
 
 	$answer_id = rand(1,1500);
 	$customer_id = rand(1,1500);
@@ -64,12 +65,7 @@
 		$stmt->bindParam(":BID", $_SESSION['businessID']);
 		$result = $stmt->execute();
 
-
-
-
-
-
-
+		Header("Location: view_audit.php");
 		
 	}
 	
@@ -140,7 +136,7 @@
 	<form method="POST">
 		<div> 
 			<label for="venue-type"> Enter a Venue </label>
-			<input name = "venue-type" value="<?php echo isset($_POST['venue-type']) ? $_POST['venue-type'] : '' ?>" >
+			<input readonly name = "venue-type" value="<?php echo $VT ?>" >
 			<button type = "submit" name="audit-button"> Start Audit </button>
 		</div>
 		</br>
