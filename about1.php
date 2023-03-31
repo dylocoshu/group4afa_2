@@ -102,7 +102,7 @@
 										</div>
 									</div>
 									<footer>
-										<a href="Index.php" class="button">Search Now</a>
+										<a href="venues.php" class="button">Search Now</a>
 									</footer>
 								</section>
 							</div>
