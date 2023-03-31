@@ -1,0 +1,242 @@
+body, html {
+    margin: 0;
+    background-color: grey;
+    height: 100px;
+}
+/* Main Layout */
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: grey;
+    justify-content: space-between;
+}
+/* .search-area{
+    min-height: 100px;
+    background-color: blue;
+} */
+.container-2{
+    display: flex;
+    min-height: 100px;
+    /* background-color: green; */
+
+}
+.content-area{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    width: 70%;
+    /* background-color: yellow; */
+    flex-shrink: 0;
+    margin: 0;
+}
+.filter-area{
+    min-height: 30vh;
+    width:30%;
+    /* background-color: red; */
+    flex-shrink: 0;
+}
+
+
+/* Card */
+.card {
+    background-color: rgba(255, 255, 255,.5);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    margin: 10px;
+    overflow:hidden;
+    transition: transform 0.2s ease-in-out;
+
+  }
+  .card:hover {
+    transform: scale(1.01);
+  }
+  
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  .card-b-i{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+  }
+  .card img{
+    width: 300px;
+    height: 150px;
+    border-radius: 15px;
+  }
+  .card-body {
+    width: 30%;
+    font-size: 24px;
+    line-height: 1.5;
+  }
+  .card-af {
+    padding-top: 10%;
+    line-height: 1.5;
+  }
+    .card a:link {
+        text-decoration: none;
+    }
+
+    .card a:visited {
+        text-decoration: none;
+    }
+
+    .card a:hover {
+        background-color: none;
+        text-decoration: none;
+        text-decoration-color: none;
+    }
+
+    .card a:active {
+        text-decoration: none;
+    }
+    .card a{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+
+  @media (max-width: 768px) {
+    .content-area{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        flex-shrink: 0;
+        margin-bottom: 50px;
+        
+    }
+    .card-b-i{
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .card-body {
+        width: 100%;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+    .card {
+      min-width: 80%;
+      position: relative;
+    }
+    .card img{
+        width: 250px;
+        height: 100px;
+        border-radius: 15px;
+      }
+    .card a{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    .card-body, .card-af {
+      font-size: 15px;
+      line-height: 1.2;
+    }
+    .search-bar-container{
+        display: flex;
+        flex-direction: column;
+        min-width: auto;
+      }
+    .container-2{
+        display: flex;
+        flex-direction: column;
+        min-height: 100px;
+    
+    }
+    .filter-area{
+        min-height: 30vh;
+        width:100%;
+        flex-shrink: 0;
+    }
+    .content-area{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        flex-shrink: 0;
+        margin: 0;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        background-color: grey;
+        align-items: center;
+        height: 100%;
+        overflow: scroll;
+    }
+  }
+
+
+
+  /* Filter */
+  .filter-area{
+    padding:10px;
+    box-shadow: 5px 0px 0px rgba(0, 0, 0, 0.1);
+  }
+  .filter-header{
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  .filter-features{
+    padding-top:5px;
+  }
+  .search-bar-container{
+    display: flex;
+    flex-direction: row;
+    min-width: auto;
+  }
+  .search-bar-container input, select{
+    box-sizing: border-box; /* Include padding and border in width */
+    width: 100px; /* Width of input and dropdown */
+    padding: 5.5px; /* Add some padding */
+    font-size: 16px; /* Change the font size */
+  }
+  .search-bar-container select{
+    padding: 6px 5px; /* Override default padding */
+    border-radius: 10px 0px 0px 10px;
+  }
+  .search-bar-container input{
+    border-radius: 0px 10px 10px 0px;
+    width: 200px;
+    height: 37px;
+  }
+
+  /* Button */
+
+  .search-btn {
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-left: 5px;
+  }
+  
+  .search-btn:hover {
+    background-color: #007FFF;
+  }

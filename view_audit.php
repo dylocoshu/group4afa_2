@@ -19,7 +19,7 @@
                     LEFT JOIN Answers a ON ar.AnswerID = a.AnswerID
                     LEFT JOIN Questions q ON a.QuestionID = q.QuestionID
                     WHERE ar.CustomerID = :CID
-                    GROUP BY ar.AnswerID, ar.Date';
+                    GROUP BY ar.AnswerID, ar.Date ORDER BY ar.Date DESC';
 
             $stmt = $db->prepare($sql);
             $stmt->bindParam(":CID", $_SESSION['businessID']);
@@ -44,7 +44,7 @@
             <?php
             if (isset($_POST['view-audit'])) {
                 $answerid = $_POST['view-audit'];
-                $sql = "SELECT Questions.Question, Answers.Answer, Questions.Action_Point
+                $sql = "SELECT Questions.Question, Answers.Answer, Questions.Action_Point, Questions.Access_Feature
                         FROM Answers 
                         INNER JOIN Questions ON Answers.QuestionID = Questions.QuestionID 
                         WHERE Answers.AnswerID = :AID";
@@ -66,6 +66,7 @@
                     <td class="answer"><?php echo $row->Answer?></td>
                     <td><?php if (strtolower($row->Answer) == "no"){echo $row->Action_Point;}else{echo "N/A";}?></td>
                     <?php if (strtolower($row->Answer) == ""){$completed = "";}?>
+                    <td><?php echo $row->Access_Feature?></td>
                 </tr>
                 <?php } ?>
             </table>

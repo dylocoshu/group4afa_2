@@ -101,7 +101,20 @@ if(isset($_POST['Update'])){
                 </tr>
                 <tr> 
                     <td> <label> Access Feature: </label> </td>
-                    <td> <input name = "access-feature"></td>
+                    <td> <input list="access-feature" name="access-feature"name = "access-feature"></td>
+                    <datalist id="access-feature">
+                        <?php 
+                        $sql_af = "SELECT DISTINCT Access_Feature from Questions";
+                        $stmt_af = $db -> prepare($sql_af);
+                        $result = $stmt_af->execute();
+                                            
+                    
+                        while ($row=$stmt_af->fetchObject())
+                        {
+                        ?>
+                            <option value="<?php echo $row->Access_Feature ?>">
+                        <?php } ?>
+                    </datalist>
                 </tr>
                 <tr> 
                     <td> <label> Premium Question: </label> </td>

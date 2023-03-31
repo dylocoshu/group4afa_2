@@ -29,7 +29,7 @@ if (isset($_POST["submit"])){
             $stmt->execute();
         }
     }
-    //header("Premium: Index.php");
+    header("Location: create_audit.php");
 }
 
 

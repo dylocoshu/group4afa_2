@@ -1,5 +1,4 @@
 <?php require("verify_login.php");?>
-
 <!DOCTYPE html>
 <?php
      $query = isset($_GET['query']) ? $_GET['query'] : null;
@@ -21,7 +20,9 @@
         $sql_stmnt.= " AND Location = '$location'";
     }
     if(!empty($searchValue)){
-        $sql_stmnt.= " AND LOWER(Business_Description) LIKE LOWER('%$searchValue%') ";
+        echo $searchValue;
+        $sql_stmnt.= " AND LOWER(Business_Description) LIKE LOWER('%$searchValue%') 
+        AND LOWER(Venue_Type) LIKE LOWER('%$searchValue%') ";
     }
     if(!empty($features_string)){
         $sql_stmnt.= " AND Access_Features LIKE '$features_string'";
@@ -57,7 +58,7 @@ if(!empty($location)){
     $sql_stmnt.= " AND Location = '$location'";
 }
 if(!empty($searchValue)){
-    $sql_stmnt.= " AND LOWER(Business_Description) LIKE LOWER('%$searchValue%') ";
+    $sql_stmnt.= " AND LOWER(Business_Description) LIKE LOWER('%$searchValue%') AND LOWER(Venue_Type) LIKE LOWER('%$searchValue%')";
 }
 if(!empty($features_string)){
     $sql_stmnt.= " AND Access_Features LIKE '$features_string'";
@@ -71,64 +72,47 @@ $stmt = $db->prepare($sql_stmnt);
 
 
 ?>
-
-    <head>
-        <meta charset="utf-8">
+<head>
+    <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="homepage_style.css">
-        <title>Everybody Welcome</title>
-    </head>
+        <link rel="stylesheet" href="test_style.css">
+        <link rel="stylesheet" href="navbar.css">
+    <title>Everybody Welcome</title>
+</head>
+
+
 <main>
-    <div class = "homepage-grid">
-        <div class = "homepage-search">
-        <form method = "POST">
-        <body>  
-            <b>Location :  </b>
-            <select name="locationDropdown" id="locationDropdown">
-                <option value="">Any</option>  
+<form method = "POST">
+    <div class= "main-container">
+        <div class = "container-2">
+            <div class = "filter-area">
+                <div class="fitler-header">
+                    <h2>Filter Search</h2>
+                </div>
+                <div class="search-bar-container">
+                    <div class="sb-left">
+                        <select name="locationDropdown" id="locationDropdown">
+                        <option value="">Any</option>  
                 <option value="Sheffield" <?php if(!empty($location)){if(strpos($location, "Sheffield") !== FALSE){?> selected = "true" <?php }}?>>Sheffield</option>
                 <option value="Derby" <?php if(!empty($location)){if(strpos($location, "Derby") !== FALSE){?> selected = "true" <?php }}?>>Derby</option>  
                 <option value="London" <?php if(!empty($location)){if(strpos($location, "London") !== FALSE){?> selected = "true" <?php }}?>>London</option>  
-            </select>
-            <input type="search" name="searchValue" placeholder="Search" value=<?php if(isset($_POST['submit'])){echo $searchValue;}?>>
-            <button class="w-20 btn btn-primary" style="align: center; float:left;" type="submit" name="submit" value="submitLocation">Search</button>  
-
-        </body>
-    </div>
-        <body>
-            <?php //if ($amount != 0){?>
-                <div class = "homepage-table">
-                    <table style="width: 100%; text-align: center;">
-                        <tr class="tableHead">
-                            <th>Business Name</th>
-                            <th>Venue</th>
-                            <th>Access Features</th>
-                            <th>Location</th>
-                            <th>Postcode</th>
-                        </tr>
-                        <?php while ($row=$stmt->fetchObject()){?>
-                                    <tr>
-                                        <td><a href="<?php if(strstr($row->Link, "https://")){ echo $row->Link; }else{echo "https://".$row->Link;};?>"><strong><?php echo $row->Business_Name?></strong></a></td>
-                                        <td><strong><?php echo $row->Venue_Type;?></strong></td>
-                                        <td><strong><a href="view_access_features.php?id=<?php echo $row->BusinessID;?>">View Access Features</a></strong></td>
-                                        <td><strong><?php echo $row->Location;?></strong></td>
-                                        <td><strong><?php echo $row->Postcode;?></strong></td>
-                                    </tr>
-                                    <?php }?>
-                        </table>
-                                </div>
-                                <?php //}?>
-        </body>
-        <div class = "homepage-access-features">
-            <header><b> Filter by Access Features </b></header>
+                        </select>
+                    </div>
+                    <div class="sb-fill">
+                        <input name="searchValue" placeholder="Search" value=<?php if(isset($_POST['submit'])){echo $searchValue;}?> >
+                    </div>
+                    <div class="sb-fill">
+                        <button class = "search-btn" type="submit" name="submit">Search</button>
+                    </div>
+                </div>
+                <div class="filter-features">
                 <?php 
                 $af_sql = "SELECT DISTINCT Access_Feature FROM Questions";
-                $stmt = $db->prepare($af_sql);
-                $stmt->execute();
+                $stmt_af = $db->prepare($af_sql);
+                $stmt_af->execute();
                 $rows_array_af = [];
                 $amount_af = 0;
-                while ($row_af=$stmt->fetchObject())
+                while ($row_af=$stmt_af->fetchObject())
                 {
                 $amount_af += 1;
                 $rows_array_vt[]=$row_af;
@@ -137,14 +121,41 @@ $stmt = $db->prepare($sql_stmnt);
                 <?php for($x=0;$x < $amount_af; $x++){?>
                     <?php if($rows_array_vt[$x]->Access_Feature != ""){?>
                         <input type="checkbox" id="vehicle<?php echo $x?>" name='features[]' value="<?php echo $rows_array_vt[$x]->Access_Feature ?>" <?php if(!empty($features_string)){if(strpos($features_string, $rows_array_vt[$x]->Access_Feature) !== FALSE){?> checked <?php }}?>>
-                        <label for="vehicle<?php echo $x?>"> <?php echo $rows_array_vt[$x]->Access_Feature ?></label><br>
+                        <b><label for="vehicle<?php echo $x?>"> <?php echo $rows_array_vt[$x]->Access_Feature ?></label></b><br>
                     <?php }?>
                 <?php } ?>
+                </div>
+            </div>
+
+
+            <div class = "content-area">
+            <?php while ($row=$stmt->fetchObject()){?>  
+                <div class="card">
+                    <div class="card-header">
+                    <a href="<?php if(strstr($row->Link, "https://")){ echo $row->Link; }else{echo "https://".$row->Link;};?>"><h2 class="card-title"><?php echo $row->Business_Name ?></h2></a>
+                    </div>
+                    <!-- <img src = 'images/cinema.jpg'>    -->
+                    <div class = "card-b-i">
+                        <div class="card-body">
+                            <p>
+                                <?php echo $row->Business_Description ?>
+                            </p>
+                        </div>
+                        <img src = 'images/cinema.jpg'> </img>
+                    </div>
+                        <div class="card-af">
+                            <small><?php echo $row->Access_Features ?></small>
+                        
+                    </div>
+                    <!-- </img> -->
+                     </a>
+                  </div>
+                  <?php }?>
+                  
+            </div>
         </div>
-                                </form>
     </div>
+            </form>
+</main>
 
-                        </main>
-                        <?php require("Footer.php");?>
-                        </html>
-
+</html>
