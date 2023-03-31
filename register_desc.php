@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
     $stmt->bindParam(":link", $link);
     $stmt->bindParam(":pcode", $pcode);
     $result = $stmt->execute();
-    header("Location: Index.php");
+    header("Location: answer_audit.php");
 }
 
 ?>

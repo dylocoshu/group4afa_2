@@ -65,12 +65,7 @@
 		$stmt->bindParam(":BID", $_SESSION['businessID']);
 		$result = $stmt->execute();
 
-
-
-
-
-
-
+		Header("Location: view_audit.php");
 		
 	}
 	

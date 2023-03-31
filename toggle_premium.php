@@ -11,5 +11,5 @@ $result = $stmt->execute();
 
 
 
-Header("Location: Index.php")
+Header("Location: view_audit.php")
 ?>
