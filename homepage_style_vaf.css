@@ -1,0 +1,29 @@
+.vaf-table{
+    display: table;
+    margin-left: 10%;
+    width: 80%;
+    font-size:24px;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+}
+tr{
+    text-align: left;
+    transition: all .2s ease-in-out; 
+}
+
+tr:hover{
+    background-color: rgb(241, 236, 236);
+    transform: scale(1.01);
+}
+
+
+@media (max-width: 768px) {
+    .vaf-table{
+        margin-left: 0;
+        width: 80%;
+        font-size:12px;
+        align-items: left;
+        justify-content: left;
+    }
+}

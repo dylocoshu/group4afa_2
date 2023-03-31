@@ -1,17 +1,27 @@
 
-
-<html>
-	<?php require("verify_login.php"); 
+<?php require("verify_login.php"); 
 	#$db = new SQLite3('/xampp/Data/test.db');
 	?>
+<html>
 
-	<?php 
+	<?php
+	$user_sql = "SELECT Premium, Venue_Type FROM business_owner WHERE Username = :username AND BusinessID = :bid";
+
+	$stmt = $db->prepare($user_sql);
+	$stmt->bindParam(":username", $_SESSION["username"]);
+	$stmt->bindParam(":bid", $_SESSION["businessID"]);
+	$result = $stmt->execute();
+	$publisher = $stmt->fetchObject();
+	$status = $publisher->Premium;
+	$VT = $publisher->Venue_Type;
+
 	$answer_id = rand(1,1500);
 	$customer_id = rand(1,1500);
 	if(isset($_POST['submit-button'])){
 		$row_amount = 0;
 		$questionidArray = [];
-		$sql_stmnt = "SELECT QuestionID, Question FROM Questions WHERE Venue_Type =  :V OR Venue_Type = 'General' ORDER BY Venue_Type ASC";
+		$af_array = [];
+		$sql_stmnt = "SELECT QuestionID, Question FROM Questions WHERE Venue_Type =  :V OR Venue_Type = 'General'";
 		$stmt = $db->prepare($sql_stmnt);
 		$stmt->bindParam(":V", $_POST["venue-type"]);
 		$result = $stmt->execute();
@@ -30,6 +40,17 @@
 			$stmt->bindParam(":QID", $questionidArray[$x]);
 			$result = $stmt->execute();
 
+			$user_sql = "SELECT Access_Feature FROM Questions WHERE QuestionID = ".$questionidArray[$x]."";
+			$stmt = $db->prepare($user_sql);
+			$result = $stmt->execute();
+			$publisher_af = $stmt->fetchObject();
+			echo "dsjhbfdj".$_POST["answer".$questionidArray[$x]] ;
+			if(!in_array($publisher_af->Access_Feature, $af_array)){
+				if($_POST["answer".$questionidArray[$x]] == "Yes"){
+					$af_array[] = $publisher_af->Access_Feature;
+				}
+				
+			}
 		}
 
 
@@ -41,23 +62,20 @@
 		$stmt->bindParam(":CID", $_SESSION['businessID']);
 		$stmt->bindParam(":Date", $current_date);
 		$result = $stmt->execute();
+		$af_string= implode(",",$af_array);
+		$sql = "UPDATE Business_Owner SET Access_Features = :AF WHERE BusinessID = :BID" ;
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(":AF",$af_string );
+		$stmt->bindParam(":BID", $_SESSION['businessID']);
+		$result = $stmt->execute();
 
-
-
-
-
-
-
-
+		Header("Location: view_audit.php");
 		
 	}
 	
 	
 	
 	?>
-
-
-
 
 	<head>
 		<meta charset="utf-8">
@@ -119,7 +137,7 @@
 	<form method="POST">
 		<div> 
 			<label for="venue-type"> Enter a Venue </label>
-			<input name = "venue-type" value="<?php echo isset($_POST['venue-type']) ? $_POST['venue-type'] : '' ?>" >
+			<input readonly name = "venue-type" value="<?php echo $VT ?>" >
 			<button type = "submit" name="audit-button"> Start Audit </button>
 		</div>
 		</br>
@@ -133,7 +151,13 @@
 
 			$amount = 0;
 				if(isset($_POST["audit-button"])){
-					$sql_stmnt = "SELECT QuestionID, Question FROM Questions WHERE Venue_Type =  :V OR Venue_Type = 'General' ORDER BY Venue_Type ASC";
+					
+					if($status == "Yes"){
+						$sql_stmnt = "SELECT QuestionID, Question, Premium FROM Questions WHERE Venue_Type =  :V OR Venue_Type = 'General' ORDER BY Venue_Type ASC";
+					}
+					else{
+						$sql_stmnt = "SELECT QuestionID, Question, Premium FROM Questions WHERE  Premium = '$status'  AND  Venue_Type =  :V OR Venue_Type = 'General' ORDER BY Venue_Type ASC";
+					}
 					$stmt = $db->prepare($sql_stmnt);
 					$stmt->bindParam(":V", $_POST["venue-type"]);
 					$result = $stmt->execute();
@@ -149,8 +173,8 @@
 						<tr>
 							<td><?php echo $rows_array[$x]->Question ?></td>
 							<td>
-								<label><input type="radio" name=<?php echo "answer_$x"?> value="Yes"> Yes</label>
-								<label><input type="radio" name=<?php echo "answer_$x"?> value="No"> No</label>   
+								<label><input type="radio" name=<?php echo "answer_".$row->QuestionID?> value="Yes">Yes</label>
+								<label><input type="radio" name=<?php echo "answer_$row->QuestionID"?> value="No">No</label>   
 							</td>
 						</tr>
 					<?php } ?>

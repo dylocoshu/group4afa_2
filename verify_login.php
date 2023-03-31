@@ -12,17 +12,13 @@ if(!empty($_SESSION['businessID'])){
 
     if($publisher->Type === "Admin"){
         require("admin_NavBar.php");
-        echo $publisher->Type;
     }
     else{
         require("user_NavBar.php");
-        echo "ID: ".$_SESSION['businessID'];
-        echo $publisher->Type;
+
     }
 }
 else{
-    require("NavBar.php");
-    echo "ID: ".$_SESSION['businessID'];
-    echo $publisher->Type;
+    require("NavBar2.php");
 }
 ?>

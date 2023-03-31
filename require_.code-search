@@ -1,0 +1,199 @@
+# Query: require(
+# ContextLines: 1
+
+41 results - 32 files
+
+About_temp.php:
+  2  <html>
+  3:   <?php require("includes/verify_login.php");?>
+  4  <head>
+
+About.php:
+  2  <html>
+  3:   <?php require("includes/verify_login.php");?>
+  4  <head>
+
+Index.php:
+    1: <?php require("includes/verify_login.php");?>
+    2  <!DOCTYPE html>
+
+  113                          </main>
+  114:                         <?php require("Footer.php");?>
+  115                          </html>
+
+qrcode.php:
+  3      include('phpqrcode/qrlib.php');
+  4:     require('fpdf/fpdf.php');
+  5      // include('config.php');
+
+view_access_features.php:
+  1  <html>
+  2: <?php require("includes/verify_login.php");?>
+  3  <?php
+
+audit\answer_audit.php:
+  3  <html>
+  4: 	<?php require("includes/verify_login.php"); 
+  5  	#$db = new SQLite3('/xampp/Data/test.db');
+
+audit\complete_audit.php:
+  1  <head>
+  2: <?php require("includes/verify_login.php")?>
+  3  <link rel="stylesheet" href="style.css">
+
+audit\create_audit.php:
+  52  <html>
+  53:     <?php require("includes/verify_login.php")?>
+  54      <?php 
+
+audit\view_audit.php:
+  1  <html>
+  2:     <?php require("includes/verify_login.php")?>
+  3      <head>
+
+fpdf\FAQ.htm:
+  168  <div class="doc-source">
+  169: <pre><code>require('fpdf.php');
+  170  
+
+  177  <div class="doc-source">
+  178: <pre><code>require('fpdf.php');
+  179  
+
+  186  <div class="doc-source">
+  187: <pre><code>require('a.php');
+  188  
+
+  195  <div class="doc-source">
+  196: <pre><code>require('b.php');
+  197  
+
+fpdf\doc\setfont.htm:
+  31  <pre><code>define('FPDF_FONTPATH', '/home/www/font');
+  32: require('fpdf.php');</code></pre>
+  33  </div>
+
+fpdf\makefont\makefont.php:
+   9  
+  10: require('ttfparser.php');
+  11  
+
+fpdf\tutorial\makefont.php:
+  2  // Generation of font definition file for tutorial 7
+  3: require('../makefont/makefont.php');
+  4  
+
+fpdf\tutorial\tuto1.htm:
+  12  <pre><code>&lt;?php
+  13: <span class="kw">require(</span><span class="str">'fpdf.php'</span><span class="kw">);
+  14  
+
+fpdf\tutorial\tuto1.php:
+  1  <?php
+  2: require('../fpdf.php');
+  3  
+
+fpdf\tutorial\tuto2.htm:
+  12  <pre><code>&lt;?php
+  13: <span class="kw">require(</span><span class="str">'fpdf.php'</span><span class="kw">);
+  14  
+
+fpdf\tutorial\tuto2.php:
+  1  <?php
+  2: require('../fpdf.php');
+  3  
+
+fpdf\tutorial\tuto3.htm:
+  13  <pre><code>&lt;?php
+  14: <span class="kw">require(</span><span class="str">'fpdf.php'</span><span class="kw">);
+  15  
+
+fpdf\tutorial\tuto3.php:
+  1  <?php
+  2: require('../fpdf.php');
+  3  
+
+fpdf\tutorial\tuto4.htm:
+  13  <pre><code>&lt;?php
+  14: <span class="kw">require(</span><span class="str">'fpdf.php'</span><span class="kw">);
+  15  
+
+fpdf\tutorial\tuto4.php:
+  1  <?php
+  2: require('../fpdf.php');
+  3  
+
+fpdf\tutorial\tuto5.htm:
+  12  <pre><code>&lt;?php
+  13: <span class="kw">require(</span><span class="str">'fpdf.php'</span><span class="kw">);
+  14  
+
+fpdf\tutorial\tuto5.php:
+  1  <?php
+  2: require('../fpdf.php');
+  3  
+
+fpdf\tutorial\tuto6.htm:
+  13  <pre><code>&lt;?php
+  14: <span class="kw">require(</span><span class="str">'fpdf.php'</span><span class="kw">);
+  15  
+
+fpdf\tutorial\tuto6.php:
+  1  <?php
+  2: require('../fpdf.php');
+  3  
+
+fpdf\tutorial\tuto7.htm:
+  107  <pre><code>&lt;?php
+  108: <span class="kw">require(</span><span class="str">'makefont/makefont.php'</span><span class="kw">);
+  109  
+
+  146  <pre><code>&lt;?php
+  147: <span class="kw">require(</span><span class="str">'makefont/makefont.php'</span><span class="kw">);
+  148  
+
+  169  <pre><code>&lt;?php
+  170: <span class="kw">require(</span><span class="str">'fpdf.php'</span><span class="kw">);
+  171  
+
+fpdf\tutorial\tuto7.php:
+  2  define('FPDF_FONTPATH','.');
+  3: require('../fpdf.php');
+  4  
+
+Group4AFA1\homepage.php:
+   1  <html>
+   2: <?php require("navbars/NavBar.php");?>
+   3  
+
+  44      </body>
+  45:     <?php require("Footer.php");?>
+  46  </html>
+
+includes\verify_login.php:
+  13      if($publisher->Type === "Admin"){
+  14:         require("navbars/admin_NavBar.php");
+  15          echo $publisher->Type;
+
+  17      else{
+  18:         require("navbars/user_NavBar.php");
+  19          echo "ID: ".$_SESSION['businessID'];
+
+  23  else{
+  24:     require("navbars/NavBar.php");
+  25      echo "ID: ".$_SESSION['businessID'];
+
+login\login.php:
+  30  <html lang="en">
+  31: <?php require("navbars/NavBar.php"); ?>
+  32  
+
+login\register_desc.php:
+  50          </style>
+  51: <?php require("navbars/NavBar.php");?>
+  52          <head>
+
+login\register.php:
+  17  <html>
+  18:     <?php require("navbars/NavBar.php");
+  19      ?>

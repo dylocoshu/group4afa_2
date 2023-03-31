@@ -15,16 +15,16 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 100px;
+  height: 127px;
 }
 nav a{
-  padding: 25px;
+  padding: 5px;
 }
 .nav-text-effects{
   text-shadow: black;
   font-weight: 100;
   font-size: 16px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Montserrat', Arial, 'Helvetica', sans-serif;
   padding: 50px;
 }
 
@@ -44,6 +44,7 @@ nav a{
 -------------------------------------------------- */
 html {
   font-size: 14px;
+  font-family: 'Montserrat', Arial, 'Helvetica', sans-serif;
 }
 @media (min-width: 768px) {
   html {
@@ -298,7 +299,7 @@ body {
   
 }
 table {
-  table-layout: fixed;
+  table-layout:fixed;
   border-collapse: separate;
   width: 100%;   
 }

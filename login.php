@@ -1,35 +1,40 @@
 <?php
 session_start();
 include('includes/config.php');
-//i
+
+$error = ''; // initialize error variable
+
 if(isset($_POST['submit'])){
-   //Retrieve the user account information for the given username.
    $username = $_POST['username'];
    $pass = $_POST['pass'];
-   $sql = "SELECT BusinessID, Venue_Type FROM Business_Owner WHERE Username = :username AND Password = :password";
-   $stmt = $db->prepare($sql);
-   
-   //Bind value
-   $stmt->bindValue(':username', $username);
-   $stmt->bindValue(':password', $pass);
-  
-   
-   //Execute
-   $stmt->execute();
-   $publisher = $stmt->fetchObject();
-   
-   if ($publisher) {
-      $_SESSION['username'] = $username;
-      $_SESSION['businessID'] = $publisher->BusinessID;
-      echo $_SESSION['businessID'];
-   } else {
-      echo '<script>alert("invalid username or password")</script>';
-   }
-}   
-?>
-<html lang="en">
-<?php require("NavBar.php"); ?>
 
+   try {
+      $sql = "SELECT BusinessID, Venue_Type FROM Business_Owner WHERE Username = :username AND Password = :password";
+      $stmt = $db->prepare($sql);
+
+      $stmt->bindValue(':username', $username);
+      $stmt->bindValue(':password', $pass);
+
+      $stmt->execute();
+      $publisher = $stmt->fetchObject();
+
+      if ($publisher) {
+         $_SESSION['username'] = $username;
+         $_SESSION['businessID'] = $publisher->BusinessID;
+         header('Location:Home.php');
+         exit();
+      } else {
+         $error = 'Invalid username or password.';
+      }
+   } catch (PDOException $e) {
+      $error = 'Database error: ' . $e->getMessage();
+   }
+}
+
+?>
+
+<html lang="en">
+<?php require("NavBar2.php"); ?>
 
 <head>
    <meta charset="utf-8">
@@ -48,6 +53,7 @@ if(isset($_POST['submit'])){
       <h1>Welcome Back!</h1>
       <br>
       
+      <div class="error-message"><?php echo $error; ?></div> <!-- display error message here -->
       
       <input class="input1" type="username" name="username" required maxlength="50" placeholder=" Username" class="box"><br>
       
@@ -55,30 +61,12 @@ if(isset($_POST['submit'])){
       <br>
       <input  type="submit" value="Login" name="submit" class="btn-primary1">
       <div class="message">
-
-      
       <p>Don't have an account? <a href="register.php"><u>Register now</u></a></p>
       </div>
    </form>
 
 </section>
 </div>
-
-
-
-<!-- login section ends -->
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

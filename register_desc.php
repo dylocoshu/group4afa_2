@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
     $stmt->bindParam(":link", $link);
     $stmt->bindParam(":pcode", $pcode);
     $result = $stmt->execute();
-    header("Location: homepage.php");
+    header("Location: answer_audit.php");
 }
 
 ?>
@@ -71,7 +71,7 @@ if(isset($_POST['submit'])){
 </div>
     </br>
 <div class = "row-submit" > 
-    <button class="w-20 btn btn-lg btn-primary" style="align: center" type="submit" name="submit" value="submitDetails">Next Page</button> 
+    <button class="w-20 btn btn-lg btn-primary" style="align: center" type="submit" name="submit" value="submitDetails">Proceed</button> 
 </div>
             </div>
             <div class="bottom-filler"></div>
