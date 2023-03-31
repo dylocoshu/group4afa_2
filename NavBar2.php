@@ -4,9 +4,11 @@
     <style>
       nav{
         box-shadow: 0 2px 2px -2px rgba(0,0,0,5);
+        height: 197px !important;
       }
       a{
         transition: all .2s ease-in-out; 
+        
       }
       a:hover{   
          background-color: rgb(241, 236, 236);
@@ -15,6 +17,13 @@
       img {
   margin-top: 10px;
 }
+.new{
+  background-color: black;
+}
+.link{
+  color:white !important
+}
+
 
       
     </style>
@@ -30,10 +39,10 @@
   
   </head>
 
-<body class = "bgcolor" >
-	<nav>
-		<div class = "nav-text-effects"> <img src = 'images/logo2.png'  alt="Everybody Welcome" width = 150 height = 80 > <a href="About.php" > About Us </a>  <a href="Index.php"> Venues </a>  </div>
-		<div class = "nav-text-effects"><a href="login.php" > Login</a><a href="home.php" > Home</a></div>
+<body class = "link" >
+	<nav class = "new">
+		<div class = "nav-text-effects"> <img src = 'images/logowhite.png'  alt="Everybody Welcome" width = 290 height = 130  >  </div>
+		<div class = "nav-text-effects"><a class = "link" href="home.php" > Home</a></div>
 	</nav>
 </body>
 
