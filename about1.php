@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 <html>
-
+<?php require("nav.php"); ?>
 	<head>
 		<title>About Us</title>
 		<meta charset="utf-8" />
@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="assets/css/main1.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-	<?php require("nav2.php"); ?>
+	
 	<body class="left-sidebar is-preload">
 		<div id="page-wrapper">
 
@@ -19,7 +19,7 @@
 					<!-- Inner -->
 						<div class="inner">
 							<header>
-							<img src="images/logo.png" alt="" />
+							<img src="images/logo.png" alt=""  />
 							</header>
 						</div>
 
@@ -43,34 +43,34 @@
 										By signing up you can make your business visable to those who need it.
 									</p>
 									<footer>
-										<a href="business-info.php" class="button">Learn More</a>
+										<a href="About.php" class="button">Learn More</a>
 									</footer>
 								</section>
 								<hr />
 								<section>
 									<header>
-										<h3><a href="#">Sed lorem etiam consequat</a></h3>
+										<h3><a href="#">Making Everybody Welcome</a></h3>
 									</header>
 									<p>
-										Tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer interdum.
+										Our website and associates aim to make businesses accessible and provide support to those who need it.
 									</p>
 									<div class="row gtr-50">
 										<div class="col-4">
 											<a href="#" class="image fit"><img src="images/pic10.jpg" alt="" /></a>
 										</div>
 										<div class="col-8">
-											<h4>Nibh sed cubilia</h4>
+											<h4>Wheelchair Access</h4>
 											<p>
-												Amet nullam fringilla nibh nulla convallis tique ante proin.
+											We provide wheelchair access to ensure that everyone can enter our premises easily and safely.
 											</p>
 										</div>
 										<div class="col-4">
 											<a href="#" class="image fit"><img src="images/pic11.jpg" alt="" /></a>
 										</div>
 										<div class="col-8">
-											<h4>Proin sed adipiscing</h4>
+											<h4>Hearing Loops</h4>
 											<p>
-												Amet nullam fringilla nibh nulla convallis tique ante proin.
+											Our hearing loops system helps people with hearing difficulties to fully participate in discussions and events.
 											</p>
 										</div>
 										<div class="col-4">
@@ -102,7 +102,7 @@
 										</div>
 									</div>
 									<footer>
-										<a href="#" class="button">Magna Adipiscing</a>
+										<a href="Index.php" class="button">Search Now</a>
 									</footer>
 								</section>
 							</div>
@@ -116,17 +116,15 @@
 									</header>
 									<a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
 									<p>There are one billion people in the world with additional access needs, including over 14 million disabled people in the U.K.
-									<br><br>93% will search for access information about your venue before they visit and, if they can’t find what they are looking for, 41% will take their business elsewhere meaning that you could be missing out on valuable custom just for the sake of providing relevant information.
-									<br><br>But what information should you provide? How should you provide it, when should you promote it and where?
-									<br><br>Everybody Welcome is the easy way to share your accessibility information and welcome the world.
-									<br><br>So what are you waiting for?
+									<br><br>93% will search for access information about your venue before they visit and, if they can’t find what they are looking for, 41% will take their business elsewhere.
+								
 									</p>
 									<section>
 										<header>
 											<h3>What is Everybody Welcome?</h3>
 										</header>
 										<p>
-										Everybody Welcome is a straightforward, smart tool to help you record, share and market relevant accessibility information about your venue.
+										Everybody Welcome is a straightforward, smart tool to help you find relevant accessibility information about a venue.
 										</p>
 										<p>
 										
@@ -134,16 +132,11 @@
 									</section>
 									<section>
 										<header>
-											<h3>Why is it needed?</h3>
+											<h3>How do I use?</h3>
 										</header>
 										<p>
-										Research shows that more than half of disabled people are not confident about visiting new places and that 79% have had a disappointing trip or had to change their plans at the last minute due to poor accessibility. 77% also find that accessibility information hard to find or inaccurate. (*Source: Euan’s Guide Access Survey 2019)
-										Venues, on the other hand, are unsure what information provide or find existing methods of providing access information costly, complicated or time-consuming so often provide nothing.
-
-As a result, people with additional access needs are missing out on visits and experiences and businesses are missing out on the additional income that would be generated by those visits.
-
-Everybody Welcome is designed to change that by supporting businesses to provide relevant accessibility information easily and quickly and enabling consumers to plan visits with ease.
-										</p>
+											Type a location (for example, "Derby") in the search bar and find businesses relevent to your needs. You can filter by venue type or accessibilty features.
+</p>
 									</section>
 								</article>
 							</div>
@@ -153,11 +146,10 @@ Everybody Welcome is designed to change that by supporting businesses to provide
 							<article class="col-4 col-12-mobile special">
 								<a href="#" class="image featured"><img src="images/pic07.jpg" alt="" /></a>
 								<header>
-									<h3><a href="#">Gravida aliquam penatibus</a></h3>
+									<h3><a href="#">Our Team</a></h3>
 								</header>
 								<p>
-									Amet nullam fringilla nibh nulla convallis tique ante proin sociis accumsan lobortis. Auctor etiam
-									porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer interdum.
+								Our team is committed to ensuring that businesses and venues across the UK are accessible to all individuals, regardless of their physical or cognitive abilities.
 								</p>
 							</article>
 							<article class="col-4 col-12-mobile special">
