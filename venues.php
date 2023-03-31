@@ -4,8 +4,8 @@
      $query = isset($_GET['query']) ? $_GET['query'] : null;
     
     if($query){
-        $location = "";
-        $searchValue = $query;
+        $location = $query;
+        $searchValue = "";
         $features_array= [];
         if(!empty($_POST['features'])) {    
             foreach($_POST['features'] as $value){
