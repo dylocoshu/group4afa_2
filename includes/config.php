@@ -3,11 +3,12 @@
 // $user = 'root';
 // $password = '';
 
-// $dsn = 'mysql:host=afagroup4.mysql.database.azure.com;dbname=afadatabase';
-// $user = 'admingroup4';
-// $password = 'Passwordgroup41!';
+$dsn = 'mysql:host=afagroup4.mysql.database.azure.com;dbname=afadatabase';
+$user = 'admingroup4';
+$password = 'Passwordgroup41!';
+
 try { 
-$db = new PDO('sqlite:/xampp/Data/test.db');
+    $db = new PDO($dsn, $user, $password);
 
 }
 catch (PDOException $e) { 
