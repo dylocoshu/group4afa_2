@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
 ?>
 
 <html lang="en">
-<?php require("NavBar.php"); ?>
+<?php require("NavBar2.php"); ?>
 
 <head>
    <meta charset="utf-8">

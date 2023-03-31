@@ -1,6 +1,6 @@
 body, html {
     margin: 0;
-    background-color: grey;
+    background-color: white;
     height: 100px;
 }
 /* Main Layout */
@@ -246,3 +246,46 @@ body, html {
   .search-btn:hover {
     background-color: #007FFF;
   }
+
+  /* a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+} */
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+nav{
+  height: 127px;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav a{
+  padding: 5px;
+}
+.nav-text-effects{
+  text-shadow: black;
+  font-weight: 100;
+  font-size: 16px;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  padding: 50px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #00c4d2;
+  border-color: #002ad2;
+}
+
+/* .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #004C89;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+} */
+
