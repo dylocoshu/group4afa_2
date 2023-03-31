@@ -1,4 +1,5 @@
 <?php require("verify_login.php");?>
+
 <!DOCTYPE html>
 <?php
      $query = isset($_GET['query']) ? $_GET['query'] : null;
