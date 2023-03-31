@@ -111,7 +111,7 @@ $stmt = $db->prepare($sql_stmnt);
                 </div>
                 <div class="filter-features">
                 <?php 
-                $af_sql = "SELECT DISTINCT Access_Feature FROM Questions";
+                $af_sql = "SELECT DISTINCT Access_Feature FROM Questions UNION SELECT DISTINCT Access_Features FROM Business_Owner";
                 $stmt_af = $db->prepare($af_sql);
                 $stmt_af->execute();
                 $rows_array_af = [];
