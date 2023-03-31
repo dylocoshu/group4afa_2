@@ -21,7 +21,7 @@ if(isset($_POST['submit'])){
       if ($publisher) {
          $_SESSION['username'] = $username;
          $_SESSION['businessID'] = $publisher->BusinessID;
-         header('Location:Home.php');
+         header('Location:home.php');
          exit();
       } else {
          $error = 'Invalid username or password.';

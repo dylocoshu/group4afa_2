@@ -1,5 +1,4 @@
 
-<?php require('includes/config.php'); ?>
 <?php 
 $amount = 0;
 #$db = new SQLite3('/xampp/Data/test.db');
@@ -59,9 +58,9 @@ if(isset($_POST['Update'])){
 
       
 ?>
-
+ <?php require("verify_login.php")?>
 <html>
-    <?php require("verify_login.php")?>
+   
     <?php 
     #$db = new SQLite3('/xampp/Data/test.db')
     ?>
