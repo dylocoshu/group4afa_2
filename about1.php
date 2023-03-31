@@ -1,6 +1,4 @@
 <!DOCTYPE HTML>
-
-<html>
 <?php require("nav2.php"); ?>
 	<head>
 		<title>About Us</title>
