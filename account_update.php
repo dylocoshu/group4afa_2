@@ -31,7 +31,7 @@ if (isset($_POST["submit"])){
             $stmt->execute();
         }
     }
-    //header("Location: Index.php");
+    Header("Location: view_audit.php");
 }
 
 
@@ -65,15 +65,15 @@ if (isset($_POST["submit"])){
                         <label for="email">Email Address</label>
                         <input id = "email" name = "email" value = "<?php echo $publisher->Email?>"></br>
                         <label for="business-name">Business Name</label>
-                        <input id = "business-name" name = "business-name" value =" <?php echo $publisher->Business_Name?>"></br>
+                        <input id = "business-name" name = "business-name" value ="<?php echo $publisher->Business_Name?>"></br>
                         <label for="venue-type">Venue Type</label>
                         <input id = "venue-type" name = "venue-type" value = "<?php echo $publisher->Venue_Type?>"></br>
                         <label for="location">Location</label>
                         <input id = "location" name = "location" value = "<?php echo $publisher->Location?>"></br>
                         <label for="postcode">Postcode</label>
-                        <input id = "postcode" name = "postcode" value = "<?php echo $publisher->Postcode?>"></br>
+                        <input id = "postcode" name = "postcode" value = "<?php echo $publisher->Postcode?>"> </br> </br> </br>
                         <label for="business-desc">Description of your Business</label>
-                        <input id = "business-desc" name="business-desc" value = "<?php echo $publisher->Business_Description ?>"></input></br>
+                        <textarea id = "business-desc" name="business-desc" rows = "4" cols = "50"><?php echo $publisher->Business_Description?></textarea></br>
                         <label for="link">Link to your Website</label> 
                         <input size = "100" id = "link" name="link" value = "<?php echo $publisher->Link?>"></input></br>
                     </div>

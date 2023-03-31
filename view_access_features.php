@@ -64,12 +64,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="homepage_style.css">
+        <link rel="stylesheet" href="homepage_style_vaf.css">
         <title>Everybody Welcome</title>
 </head>
 <?php if($amount != 0) {?>
 
-<table>
+<table class = "vaf-table">
   <?php $temp = "";?>
 <?php for($x = 0; $x < $af_amount; $x++){ ?>
   <?php if($rows_array_af[$x]->Access_Feature != $temp){?>
