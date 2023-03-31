@@ -1,6 +1,13 @@
 <?php
 session_start();
 include('includes/config.php');
+
+if(isset($_POST['submit-button'])) {
+    $query = urlencode($_POST['email']);
+    Header("Location: venues.php?query=$query");
+    exit;
+}
+
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -8,14 +15,6 @@ include('includes/config.php');
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-
-<?php
-if(isset($_POST['submit-button'])) {
-    $query = urlencode($_POST['email']);
-    Header("Location: venues.php?query=$query");
-    exit;
-}
-?>
 <?php require("nav.php"); ?>
 
 	<head>
