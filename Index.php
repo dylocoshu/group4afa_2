@@ -91,7 +91,7 @@ $stmt = $db->prepare($sql_stmnt);
                 <option value="Derby" <?php if(!empty($location)){if(strpos($location, "Derby") !== FALSE){?> selected = "true" <?php }}?>>Derby</option>  
                 <option value="London" <?php if(!empty($location)){if(strpos($location, "London") !== FALSE){?> selected = "true" <?php }}?>>London</option>  
             </select>
-            <input type="search" name="searchValue" placeholder="Search" value=<?php if(isset($_POST['submit'])){;}?>>
+            <input type="search" name="searchValue" placeholder="Search" value=<?php if(isset($_POST['submit'])){echo $searchValue;}?>>
             <button class="w-20 btn btn-primary" style="align: center; float:left;" type="submit" name="submit" value="submitLocation">Search</button>  
 
         </body>

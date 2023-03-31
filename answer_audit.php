@@ -19,6 +19,7 @@
 	if(isset($_POST['submit-button'])){
 		$row_amount = 0;
 		$questionidArray = [];
+		$af_array = [];
 		$sql_stmnt = "SELECT QuestionID, Question FROM Questions WHERE Venue_Type =  :V OR Venue_Type = 'General'";
 		$stmt = $db->prepare($sql_stmnt);
 		$stmt->bindParam(":V", $_POST["venue-type"]);
@@ -38,6 +39,13 @@
 			$stmt->bindParam(":QID", $questionidArray[$x]);
 			$result = $stmt->execute();
 
+			$user_sql = "SELECT Access_Feature FROM Questions WHERE QuestionID = ".$questionidArray[$x]."";
+			$stmt = $db->prepare($user_sql);
+			$result = $stmt->execute();
+			$publisher_af = $stmt->fetchObject();
+			if(!in_array($publisher_af->Access_Feature, $af_array)){
+				$af_array[] = $publisher_af->Access_Feature;
+			}
 		}
 
 
@@ -49,7 +57,12 @@
 		$stmt->bindParam(":CID", $_SESSION['businessID']);
 		$stmt->bindParam(":Date", $current_date);
 		$result = $stmt->execute();
-
+		$af_string= implode(",",$af_array);
+		$sql = "UPDATE Business_Owner SET Access_Features = :AF WHERE BusinessID = :BID" ;
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(":AF",$af_string );
+		$stmt->bindParam(":BID", $_SESSION['businessID']);
+		$result = $stmt->execute();
 
 
 

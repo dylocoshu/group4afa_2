@@ -42,7 +42,7 @@
     <?php for($x = 0; $x < $q_amount; $x++){
         
         
-        $sql = "SELECT  Access_Feature FROM Questions WHERE QuestionID = :id";
+        $sql = "SELECT  Question, Access_Feature FROM Questions WHERE QuestionID = :id ORDER BY Venue_Type DESC";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id', $rows_array_q[$x]->QuestionID);
         $result = $stmt->execute();
@@ -70,16 +70,21 @@
 <?php if($amount != 0) {?>
 
 <table>
+  <?php $temp = "";?>
+<?php for($x = 0; $x < $af_amount; $x++){ ?>
+  <?php if($rows_array_af[$x]->Access_Feature != $temp){?>
   <thead>
     <tr align = "center">
-      <th>Accessibility</th>
+      <th><?php echo $rows_array_af[$x]->Access_Feature ?></th>
       <th>Status</th>
     </tr>
+    <?php $temp = $rows_array_af[$x]->Access_Feature;?>
+<?php } ?>
   </thead>
   <tbody>
-    <?php for($x = 0; $x < $af_amount; $x++){ ?>
+    
     <tr align = "center">
-        <td><strong> <?php echo $rows_array_af[$x]->Access_Feature ?></strong> </td>
+        <td><strong> <?php echo $rows_array_af[$x]->Question ?></strong> </td>
         <td><?php echo '&#x2714;'?></td>
     </tr>
     <?php } ?>
