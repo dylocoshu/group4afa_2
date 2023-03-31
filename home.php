@@ -1,6 +1,6 @@
 
 
-<html>
+<!DOCTYPE html>
 <?php require("verify_login.php");?>
 <head>
 <meta charset="utf-8">
