@@ -130,17 +130,23 @@ WHERE Answers.AnswerID = $answerID");
 <button type="submit" name="submit-button">Submit</button>
 </form>
 <?php if(isset($_POST['submit-button'])){
-    
-	
-    
-    
-
+	$af_array = [];
     for($x = 0; $x < $amount; $x++){
         
 		$y = $qid_array[$x];
 		
-        $answer = $_POST["answer_$y"];
-        
+		$user_sql = "SELECT Access_Feature FROM Questions WHERE QuestionID = ".$qid_array[$x]."";
+		$stmt = $db->prepare($user_sql);
+		$result = $stmt->execute();
+		$publisher_af = $stmt->fetchObject();
+
+        $answer = $_POST["answer_$y"];			
+		if(!in_array($publisher_af->Access_Feature, $af_array)){
+			if($_POST["answer_".$qid_array[$x]] == "Yes"){
+				$af_array[] = $publisher_af->Access_Feature;
+			}
+			
+		}
 
         
 		$sql = "UPDATE Answers SET Answer = :A WHERE AnswerID = :AID AND QuestionID = :QID";
@@ -150,7 +156,6 @@ WHERE Answers.AnswerID = $answerID");
         $stmt->bindParam(":QID", $y);
         $result = $stmt->execute();
     }
-
     $current_date = date("d-m-y");
 $sql = "UPDATE Audit_Response SET Date = :Date WHERE AnswerID = :AID AND CustomerID = :CID";
 $stmt = $db->prepare($sql);
@@ -158,7 +163,12 @@ $stmt->bindParam(":AID", $answer_id);
 $stmt->bindParam(":CID", $_SESSION['businessID']);
 $stmt->bindParam(":Date", $current_date);
 $result = $stmt->execute();
-header('Location:view_audit.php');
+$af_string = implode(",",$af_array);
+$sql = "UPDATE Business_Owner SET Access_Features = :AF WHERE BusinessID = :BID" ;
+$stmt = $db->prepare($sql);
+$stmt->bindParam(":AF",$af_string );
+$stmt->bindParam(":BID", $_SESSION['businessID']);
+$result = $stmt->execute();
 
 }?>
 </html>

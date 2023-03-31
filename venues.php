@@ -60,7 +60,7 @@ if(!empty($searchValue)){
     $sql_stmnt.= " AND LOWER(Business_Description) LIKE LOWER('%$searchValue%') AND LOWER(Venue_Type) LIKE LOWER('%$searchValue%')";
 }
 if(!empty($features_string)){
-    $sql_stmnt.= " AND Access_Features LIKE '$features_string'";
+    $sql_stmnt.= " AND Access_Features LIKE '$features_string' ";
 }
 $stmt = $db->prepare($sql_stmnt);
 
@@ -75,6 +75,9 @@ $stmt = $db->prepare($sql_stmnt);
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="test_style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
         
     <title>Everybody Welcome</title>
 
@@ -133,21 +136,25 @@ $stmt = $db->prepare($sql_stmnt);
             <?php while ($row=$stmt->fetchObject()){?>
                 <?php 
                 $venue_img = "";
+                $venue_alt = "";
                 if($row->Venue_Type == "Cinema"){
                     $venue_img = 'images/cinema.jpg';
                 }
                 elseif($row->Venue_Type == "Restaraunt"){
                     $venue_img = 'images/restaraunt.jpg';
+                    $venue_alt = 'Image of a nice restaraunt.';
                 }elseif($row->Venue_Type == "Museum"){
                     $venue_img = 'images/museum.png';
+                    $venue_alt = 'Image of a museum.';
                 }else{
                     $venue_img = 'images/park.jpg';
+                    $venue_alt = 'Image of a park.';
                 }?>  
                 <div class="card">
                     <div class="card-header">
                     <a href="<?php if(strstr($row->Link, "https://")){ echo $row->Link; }else{echo "https://".$row->Link;};?>"><h2 class="card-title"><?php echo $row->Business_Name ?></h2></a>
                     </div>
-                    <img src = '<?php echo $venue_img ?>'>   
+                    <img src = '<?php echo $venue_img ?>' alt = <?php echo $venue_alt ?> >   
                     <div class = "card-b-i">
                         <div class="card-body">
                             <p>

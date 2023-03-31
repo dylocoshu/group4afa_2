@@ -2,6 +2,7 @@ body, html {
     margin: 0;
     background-color: white;
     height: 100px;
+    font-family: 'Montserrat', Arial, 'Helvetica', sans-serif;
 }
 /* Main Layout */
 .container{
@@ -186,7 +187,6 @@ body, html {
     .container{
         display: flex;
         flex-direction: column;
-        background-color: grey;
         align-items: center;
         height: 100%;
         overflow: scroll;
@@ -212,6 +212,7 @@ body, html {
     display: flex;
     flex-direction: row;
     min-width: auto;
+    flex-wrap: wrap;
   }
   .search-bar-container input, select{
     box-sizing: border-box; /* Include padding and border in width */
@@ -232,7 +233,7 @@ body, html {
   /* Button */
 
   .search-btn {
-    background-color: #1E90FF;
+    background-color: green;
     color: #FFFFFF;
     border: none;
     padding: 5px 20px;
