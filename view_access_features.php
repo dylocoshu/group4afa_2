@@ -42,7 +42,7 @@
     <?php for($x = 0; $x < $q_amount; $x++){
         
         
-        $sql = "SELECT  Question, Access_Feature FROM Questions WHERE QuestionID = :id";
+        $sql = "SELECT  Question, Access_Feature FROM Questions WHERE QuestionID = :id ORDER BY Venue_Type DESC";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id', $rows_array_q[$x]->QuestionID);
         $result = $stmt->execute();

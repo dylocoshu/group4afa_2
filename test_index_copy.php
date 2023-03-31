@@ -129,25 +129,36 @@ $stmt = $db->prepare($sql_stmnt);
 
 
             <div class = "content-area">
-            <?php while ($row=$stmt->fetchObject()){?>  
+            <?php while ($row=$stmt->fetchObject()){?>
+                <?php 
+                $venue_img = "";
+                if($row->Venue_Type == "Cinema"){
+                    $venue_img = 'images/cinema.jpg';
+                }
+                elseif($row->Venue_Type == "Restaraunt"){
+                    $venue_img = 'images/restaraunt.jpg';
+                }elseif($row->Venue_Type == "Museum"){
+                    $venue_img = 'images/museum.png';
+                }else{
+                    $venue_img = 'images/park.jpg';
+                }?>  
                 <div class="card">
                     <div class="card-header">
                     <a href="<?php if(strstr($row->Link, "https://")){ echo $row->Link; }else{echo "https://".$row->Link;};?>"><h2 class="card-title"><?php echo $row->Business_Name ?></h2></a>
                     </div>
-                    <!-- <img src = 'images/cinema.jpg'>    -->
+                    <img src = '<?php echo $venue_img ?>'>   
                     <div class = "card-b-i">
                         <div class="card-body">
                             <p>
                                 <?php echo $row->Business_Description ?>
                             </p>
                         </div>
-                        <img src = 'images/cinema.jpg'> </img>
                     </div>
                         <div class="card-af">
-                            <small><?php echo $row->Access_Features ?></small>
+                            <small><b><?php echo $row->Access_Features ?></b></small>
                         
                     </div>
-                    <!-- </img> -->
+                    </img>
                      </a>
                   </div>
                   <?php }?>
