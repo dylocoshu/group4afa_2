@@ -15,7 +15,7 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 100px;
+  height: 127px;
 }
 nav a{
   padding: 5px;

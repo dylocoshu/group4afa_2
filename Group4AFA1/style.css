@@ -10,12 +10,12 @@ a {
 }
 
 nav{
-  height: 80px;
+  height: 127px ;
   background: purple;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 100px;
+  
 }
 nav a{
   padding: 25px;
@@ -90,6 +90,9 @@ body {
 
 .bgColor {
     background-color: grey;
+}
+.userbgcolor {
+  background-color: white;
 }
 
 .container {

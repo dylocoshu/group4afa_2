@@ -4,7 +4,7 @@
     <style>
       nav{
         box-shadow: 0 2px 2px -2px rgba(0,0,0,5);
-        height: 197px !important;
+        height: 127px !important;
       }
       a{
         transition: all .2s ease-in-out; 
@@ -14,14 +14,12 @@
          background-color: rgb(241, 236, 236);
          border-radius: 10px;
       }
-      img {
-  margin-top: 10px;
-}
+      
 .new{
   background-color: black;
 }
 .link{
-  color:white !important
+  color:white 
 }
 
 
@@ -39,10 +37,10 @@
   
   </head>
 
-<body class = "link" >
+<body class="userbgcolour">
 	<nav class = "new">
-		<div class = "nav-text-effects"> <img src = 'images/logowhite.png'  alt="Everybody Welcome" width = 290 height = 130  >  </div>
-		<div class = "nav-text-effects"><a class = "link" href="home.php" > Home</a></div>
+		<div class = "nav-text-effects"> <img src = 'images/logowhite.png'  alt="Everybody Welcome" width = 149 height = 65  >  </div>
+		<div class = "nav-text-effects"><a class="link" href="home.php" > Home</a></div>
 	</nav>
 </body>
 

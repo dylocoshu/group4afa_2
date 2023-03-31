@@ -19,6 +19,6 @@ if(!empty($_SESSION['businessID'])){
     }
 }
 else{
-    require("NavBar.php");
+    require("NavBar2.php");
 }
 ?>
