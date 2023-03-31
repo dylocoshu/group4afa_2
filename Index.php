@@ -9,7 +9,7 @@
 <?php
 if(isset($_POST['submit-button'])) {
     $query = urlencode($_POST['email']);
-    header("Location: Index.php?query=$query");
+    header("Location: venues.php?query=$query");
     exit;
 }
 ?>

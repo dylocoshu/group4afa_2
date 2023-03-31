@@ -40,7 +40,7 @@
 <body class="userbgcolour">
 	<nav class = "new">
 		<div class = "nav-text-effects"> <img src = 'images/logowhite.png'  alt="Everybody Welcome" width = 149 height = 65  >  </div>
-		<div class = "nav-text-effects"><a class="link" href="home.php" > Home</a></div>
+		<div class = "nav-text-effects"><a class="link" href="Index.php" > Home</a></div>
 	</nav>
 </body>
 

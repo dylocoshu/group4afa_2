@@ -20,7 +20,6 @@
         $sql_stmnt.= " AND Location = '$location'";
     }
     if(!empty($searchValue)){
-        echo $searchValue;
         $sql_stmnt.= " AND LOWER(Business_Description) LIKE LOWER('%$searchValue%') 
         AND LOWER(Venue_Type) LIKE LOWER('%$searchValue%') ";
     }
