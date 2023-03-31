@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	
+	include('includes/config.php');
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -13,7 +13,6 @@
 if(isset($_POST['submit-button'])) {
     $query = urlencode($_POST['email']);
     Header("Location: venues.php?query=$query");
-    exit;
 }
 ?>
 <?php require("nav.php"); ?>
